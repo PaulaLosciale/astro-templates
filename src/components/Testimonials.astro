@@ -1,0 +1,166 @@
+---
+export interface Props {
+  title?: string;
+  testimonials?: Array<{
+    name: string;
+    role: string;
+    company: string;
+    content: string;
+    avatar?: string;
+    rating?: number;
+  }>;
+}
+
+const { 
+  title = "Lo que dicen nuestros clientes",
+  testimonials = [
+    {
+      name: "María González",
+      role: "CEO",
+      company: "TechStart",
+      content: "Increíble herramienta que ha transformado completamente nuestro workflow. El equipo está más productivo que nunca.",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5b8?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    },
+    {
+      name: "Carlos Rodríguez",
+      role: "Director de Marketing",
+      company: "Digital Agency",
+      content: "La integración fue súper sencilla y los resultados fueron inmediatos. Recomendamos 100% esta solución.",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    },
+    {
+      name: "Ana Martínez",
+      role: "Product Manager",
+      company: "InnovaCorp",
+      content: "El soporte es excepcional y la plataforma es intuitiva. Nuestros KPIs han mejorado significativamente.",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="testimonials-title">{title}</h2>
+    
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial, index) => (
+        <div class="testimonial-card" style={`animation-delay: ${index * 0.2}s`}>
+          <div class="testimonial-content">
+            <div class="stars">
+              {Array.from({ length: testimonial.rating || 5 }, () => (
+                <span class="star">⭐</span>
+              ))}
+            </div>
+            <blockquote class="testimonial-text">
+              "{testimonial.content}"
+            </blockquote>
+          </div>
+          
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              {testimonial.avatar ? (
+                <img src={testimonial.avatar} alt={testimonial.name} />
+              ) : (
+                <div class="avatar-placeholder">
+                  {testimonial.name.charAt(0)}
+                </div>
+              )}
+            </div>
+            <div class="author-info">
+              <h4 class="author-name">{testimonial.name}</h4>
+              <p class="author-role">{testimonial.role} en {testimonial.company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="testimonials-stats">
+      <div class="stat">
+        <span class="stat-number">4.9/5</span>
+        <span class="stat-label">Puntuación promedio</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">2,500+</span>
+        <span class="stat-label">Reseñas verificadas</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Clientes satisfechos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: 6rem 0;
+    background: white;
+    position: relative;
+  }
+  
+  .testimonials-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 4rem;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .testimonial-card {
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  
+  .testimonial-content {
+    margin-bottom: 2rem;
+  }
+  
+  .stars {
+    margin-bottom: 1rem;
+  }
+  
+  .star {
+    font-size: 1.2rem;
+    margin-right: 0.25rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin: 0;
+    font-style: italic;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .author-avatar {
+    width: 50px;
+    height: 50px

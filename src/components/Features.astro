@@ -1,0 +1,153 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  features?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+const { 
+  title = "Características principales",
+  subtitle = "Todo lo que necesitas para hacer crecer tu negocio",
+  features = [
+    {
+      icon: "⚡",
+      title: "Rendimiento Ultra Rápido",
+      description: "Optimizado para velocidad extrema con tecnología de vanguardia"
+    },
+    {
+      icon: "🔒",
+      title: "Seguridad Avanzada",
+      description: "Protección de nivel empresarial con cifrado end-to-end"
+    },
+    {
+      icon: "📊",
+      title: "Análisis en Tiempo Real",
+      description: "Dashboard completo con métricas detalladas y reportes automáticos"
+    },
+    {
+      icon: "🌐",
+      title: "Integración Global",
+      description: "Conecta con más de 100 servicios y plataformas populares"
+    },
+    {
+      icon: "🎯",
+      title: "Personalización Total",
+      description: "Adapta cada elemento según tus necesidades específicas"
+    },
+    {
+      icon: "📱",
+      title: "Responsive Design",
+      description: "Perfecta experiencia en todos los dispositivos y pantallas"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="features">
+  <div class="container">
+    <div class="features-header">
+      <h2 class="features-title">{title}</h2>
+      <p class="features-subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="features-grid">
+      {features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-icon">
+            {feature.icon}
+          </div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 6rem 0;
+    background: #f8fafc;
+  }
+  
+  .features-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+  
+  .features-subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+  
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-description {
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .features {
+      padding: 4rem 0;
+    }
+    
+    .features-title {
+      font-size: 2rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .feature-card {
+      padding: 2rem;
+    }
+  }
+</style>
