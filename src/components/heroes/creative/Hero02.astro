@@ -1,0 +1,124 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  primaryCTA?: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+  image?: string;
+  badge?: string;
+}
+
+const {
+  title = "Diseño que Impulsa tu Crecimiento",
+  subtitle = "Innovación sin Límites",
+  description = "Creamos experiencias digitales que no solo se ven bien, sino que rinden excepcionalmente. Únete a la revolución del diseño moderno.",
+  primaryCTA = { text: "Empezar ahora", href: "/get-started" },
+  secondaryCTA = { text: "Saber más", href: "/about" },
+  image = "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2670",
+  badge = "Nueva Versión 5.0 ya disponible"
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center bg-white overflow-hidden">
+  <!-- Background Decoration -->
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 -skew-x-12 translate-x-1/4 z-0"></div>
+  
+  <div class="container mx-auto px-6 lg:px-12 relative z-10 py-20">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <!-- Left Content -->
+      <div class="w-full lg:w-1/2 text-left animate-fade-in">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-8 border border-blue-200 shadow-sm animate-bounce-slow">
+          <span class="flex h-2 w-2 mr-3">
+            <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          {badge}
+        </div>
+        
+        <h1 class="text-5xl lg:text-7xl font-black text-gray-900 leading-[1.1] mb-8">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            {subtitle}
+          </span>
+          <br />
+          {title}
+        </h1>
+        
+        <p class="text-xl text-gray-600 mb-12 max-w-xl leading-relaxed">
+          {description}
+        </p>
+        
+        <div class="flex flex-wrap gap-5">
+          <a 
+            href={primaryCTA.href} 
+            class="px-8 py-4 bg-gray-900 text-white rounded-xl font-bold text-lg hover:bg-gray-800 transition shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transform"
+          >
+            {primaryCTA.text}
+          </a>
+          <a 
+            href={secondaryCTA.href} 
+            class="px-8 py-4 bg-white text-gray-900 border-2 border-gray-100 rounded-xl font-bold text-lg hover:border-blue-200 hover:text-blue-600 transition shadow-lg hover:shadow-blue-50/50 hover:-translate-y-1 transform"
+          >
+            {secondaryCTA.text}
+          </a>
+        </div>
+
+        <!-- Social Proof/Trust -->
+        <div class="mt-16 pt-10 border-t border-gray-100 flex items-center gap-6">
+          <div class="flex -space-x-3">
+            {[1,2,3,4].map(i => (
+              <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" />
+              </div>
+            ))}
+          </div>
+          <p class="text-sm font-medium text-gray-500">
+            Más de <span class="text-gray-900 font-bold">10,000+</span> usuarios ya confían en nosotros
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="w-full lg:w-1/2 relative group">
+        <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition duration-500"></div>
+        <div class="relative bg-gray-100 rounded-[2.5rem] p-4 lg:p-6 shadow-2xl border border-white/50">
+          <img 
+            src={image} 
+            alt="Hero Visual" 
+            class="rounded-3xl shadow-inner w-full object-cover aspect-square lg:aspect-[4/5]"
+          />
+          
+          <!-- Floating UI Elements -->
+          <div class="absolute top-1/4 -left-12 bg-white p-5 rounded-2xl shadow-2xl border border-gray-50 hidden xl:block animate-float">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-gray-900">Proyecto Lanzado</p>
+                <p class="text-xs text-gray-500">hace 2 minutos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+  }
+</style>

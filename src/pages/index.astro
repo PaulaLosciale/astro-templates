@@ -1,7 +1,95 @@
 ---
-import "../styles/global.css";
+import Layout from '../layouts/Layout.astro';
+import { NavbarModern } from '../components/navigation/modern/NavbarModern';
+import HeroSaaS from '../components/heroes/saas/HeroSaaS.astro';
+import FeaturesModern from '../components/features/modern/FeaturesModern.astro';
+import AboutCorporate from '../components/about/corporate/AboutCorporate.astro';
+import PricingSaaS from '../components/pricing/saas/PricingSaaS.astro';
+import TestimonialsCreative from '../components/testimonials/creative/TestimonialsCreative.astro';
+import BlogModern from '../components/blog/modern/BlogModern.astro';
+import FAQCorporate from '../components/faq/corporate/FAQCorporate.astro';
+import ContactModern from '../components/contact/modern/ContactModern.astro';
+import FooterModern from '../components/footers/modern/FooterModern.astro';
+import { ThemeToggle } from '../components/utils/ThemeToggle';
+
+// Configuración de visualización
+const siteName = "Lego 3.0 Sync";
 ---
 
-<h1 class="text-5xl font-bold text-right text-pink-600 mt-10">
-  Hola con Tailwind
-</h1>
+<Layout title="Lego 3.0 - Global Sync Showcase">
+	<NavbarModern client:load siteName={siteName} />
+	
+	<main>
+		<!-- SECCIÓN DE BIENVENIDA & EXPLICACIÓN -->
+		<section class="py-20 bg-primary-500 text-white text-center">
+			<div class="max-w-4xl mx-auto px-6">
+				<h1 class="text-6xl font-black mb-8 tracking-tighter italic">SISTEMA UNIFICADO.</h1>
+				<p class="text-xl font-medium mb-12 opacity-90">
+					Has desbloqueado más de 50 componentes premium. <br/>
+					Prueba a cambiar el color en <code class="bg-black/20 p-1 px-2 rounded">src/styles/theme.css</code> 
+					y verás cómo toda la página responde al instante.
+				</p>
+				<div class="flex justify-center gap-4">
+					<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary-500 font-black animate-bounce pb-1">↓</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SHOWCASE POR CATEGORÍAS (Ejemplos mezclados de estilos) -->
+		
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de Hero SaaS</span>
+		</div>
+		<HeroSaaS />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de Features Modernas</span>
+		</div>
+		<FeaturesModern />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de About Corporativo</span>
+		</div>
+		<AboutCorporate />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de Pricing SaaS</span>
+		</div>
+		<PricingSaaS />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de Testimonials Creativos</span>
+		</div>
+		<TestimonialsCreative />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de Blog Moderno</span>
+		</div>
+		<BlogModern />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Ejemplo de FAQ Corporativa</span>
+		</div>
+		<FAQCorporate />
+
+		<div class="py-6 bg-gray-100 dark:bg-gray-900 text-center border-y border-gray-200 dark:border-gray-800">
+			<span class="text-xs font-black uppercase tracking-widest text-gray-400 italic">Formulario de Contacto (Configurable)</span>
+		</div>
+		<ContactModern />
+	</main>
+
+	<FooterModern />
+	
+	<ThemeToggle client:load />
+</Layout>
+
+<style is:global>
+	/* Animaciones globales */
+	@keyframes fadeInUp {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	.custom-fade-in {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+</style>

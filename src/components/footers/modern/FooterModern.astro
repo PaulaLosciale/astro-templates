@@ -1,0 +1,36 @@
+---
+const { siteName = "Modern" } = Astro.props;
+---
+<footer class="bg-gray-50 dark:bg-gray-900/50 py-24 border-t border-gray-100 dark:border-gray-800 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-16 items-center">
+       <div class="col-span-1 md:col-span-2">
+         <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-6">Empecemos algo <span class="text-primary-500">increíble</span> juntos.</h2>
+         <p class="text-gray-500 dark:text-gray-400 text-xl font-medium max-w-md">Diseño de vanguardia para productos que marcan la diferencia en el mercado.</p>
+       </div>
+       
+       <div class="space-y-4">
+         <h4 class="font-bold text-gray-400 dark:text-gray-500 uppercase text-xs tracking-widest">Social</h4>
+         <div class="flex flex-col gap-2 font-bold dark:text-white">
+           <a href="#" class="hover:text-primary-500 transition-colors">Instagram</a>
+           <a href="#" class="hover:text-primary-500 transition-colors">LinkedIn</a>
+           <a href="#" class="hover:text-primary-500 transition-colors">Dribbble</a>
+         </div>
+       </div>
+
+       <div class="space-y-4">
+          <h4 class="font-bold text-gray-400 dark:text-gray-500 uppercase text-xs tracking-widest">Links</h4>
+          <div class="flex flex-col gap-2 font-bold dark:text-white">
+            <a href="#" class="hover:text-primary-500 transition-colors">Aviso Legal</a>
+            <a href="#" class="hover:text-primary-500 transition-colors">Cookies</a>
+            <a href="#" class="hover:text-primary-500 transition-colors">Privacidad</a>
+          </div>
+       </div>
+    </div>
+    
+    <div class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center">
+      <span class="text-3xl font-black text-primary-500">◈</span>
+      <p class="text-sm font-bold text-gray-400">© 2026 {siteName}. Crafted with Passion.</p>
+    </div>
+  </div>
+</footer>

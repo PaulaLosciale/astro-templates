@@ -1,0 +1,177 @@
+---
+export interface Props {
+  logo?: string;
+  siteName?: string;
+  navigation?: Array<{
+    label: string;
+    href: string;
+    badge?: string;
+  }>;
+  showSearch?: boolean;
+  searchId?: string;
+  searchPlaceholder?: string;
+  showNotifications?: boolean;
+  showProfile?: boolean;
+  profileImage?: string;
+  userName?: string;
+}
+
+const {
+  logo = "/logo.svg",
+  siteName = "SearchApp",
+  navigation = [
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Projects", href: "/projects", badge: "12" },
+    { label: "Team", href: "/team" },
+    { label: "Analytics", href: "/analytics", badge: "New" },
+    { label: "Settings", href: "/settings" }
+  ],
+  showSearch = true,
+  searchId = "search-input",
+  searchPlaceholder = "Search anything (⌘K)...",
+  showNotifications = true,
+  showProfile = true,
+  profileImage = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  userName = "John Doe"
+} = Astro.props;
+---
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Left Section: Logo + Navigation -->
+      <div class="flex items-center space-x-8">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-sm">S</span>
+            </div>
+            <span class="text-xl font-bold text-gray-900">{siteName}</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-1">
+          {navigation.map((item) => (
+            <a 
+              href={item.href}
+              class="relative flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200 group"
+            >
+              {item.label}
+              {item.badge && (
+                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  {item.badge}
+                </span>
+              )}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Center Section: Search Bar -->
+      {showSearch && (
+        <div class="flex-1 max-w-2xl mx-8 hidden md:block">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input 
+              type="search"
+              placeholder={searchPlaceholder}
+              class="block w-full pl-10 pr-12 py-2.5 border border-gray-300 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all duration-200"
+              id={searchId}
+            />
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <kbd class="inline-flex items-center px-2 py-1 border border-gray-200 rounded text-xs font-sans font-medium text-gray-400">
+                ⌘K
+              </kbd>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Right Section: Actions -->
+      <div class="flex items-center space-x-3">
+        
+        <!-- Mobile Search Button -->
+        {showSearch && (
+          <button 
+            class="md:hidden p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            id="mobile-search-button"
+            aria-label="Search"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        )}
+
+        <!-- Notifications -->
+        {showNotifications && (
+          <div class="relative">
+            <button 
+              class="relative p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+              id="notifications-button"
+              aria-label="Notifications"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+              </svg>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+            <div class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-2" id="notifications-dropdown">
+               <div class="px-4 py-2 border-b border-gray-100"><h3 class="text-sm font-semibold text-gray-900">Notifications</h3></div>
+               <div class="max-h-64 overflow-y-auto"><a href="#" class="block px-4 py-3 hover:bg-gray-50 transition-colors"><p class="text-sm text-gray-900">New system update available</p></a></div>
+            </div>
+          </div>
+        )}
+
+        <!-- Profile -->
+        {showProfile && (
+          <div class="relative">
+            <button class="flex items-center space-x-2 p-1.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-200" id="profile-button">
+              <img class="w-8 h-8 rounded-full object-cover" src={profileImage} alt={userName} />
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline define:vars={{ searchId }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Dropdowns (Simple handles)
+    const setupDropdown = (btnId, dropId) => {
+      const btn = document.getElementById(btnId);
+      const drop = document.getElementById(dropId);
+      if (btn && drop) {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); drop.classList.toggle('hidden'); });
+        document.addEventListener('click', () => drop.classList.add('hidden'));
+      }
+    };
+    setupDropdown('notifications-button', 'notifications-dropdown');
+
+    // Search functionality
+    const searchInp = document.getElementById(searchId);
+    if (searchInp) {
+      searchInp.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        document.querySelectorAll('section').forEach(s => {
+          s.style.opacity = s.innerText.toLowerCase().includes(query) ? '1' : '0.1';
+        });
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInp.focus();
+        }
+      });
+    }
+  });
+</script>

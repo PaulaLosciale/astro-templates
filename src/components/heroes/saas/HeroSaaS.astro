@@ -1,0 +1,31 @@
+---
+const { title = "Impulsa tu Crecimiento", description = "La plataforma definitiva para equipos que buscan eficiencia." } = Astro.props;
+---
+<section class="relative pt-32 pb-20 overflow-hidden bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-widest mb-6 border border-primary-100 dark:border-primary-800">
+        <span>NEW</span>
+        <span class="w-1 h-1 bg-primary-400 rounded-full"></span>
+        <span>Version 3.0 Live</span>
+      </div>
+      <h1 class="text-6xl md:text-7xl font-black text-gray-900 dark:text-white leading-[1.1] mb-8 tracking-tighter">
+        {title} <span class="text-primary-500">Inteligente</span>
+      </h1>
+      <p class="text-xl text-gray-500 dark:text-gray-400 mb-10 leading-relaxed">
+        {description}
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#" class="bg-primary-500 hover:bg-primary-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-primary-500/20 transition-all hover:-translate-y-1">Empezar Gratis</a>
+        <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all">Ver Vídeo</a>
+      </div>
+    </div>
+    
+    <div class="relative max-w-5xl mx-auto">
+      <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-indigo-500 rounded-[2rem] blur opacity-20"></div>
+      <div class="relative bg-gray-900 rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
+         <span class="text-white/20 font-black text-4xl">DASHBOARD MOCKUP</span>
+      </div>
+    </div>
+  </div>
+</section>

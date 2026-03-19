@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { NavbarClean } from '../components/navigation/cleantech/NavbarClean';
+import HeroClean from '../components/heroes/cleantech/HeroClean.astro';
+import FeaturesClean from '../components/features/cleantech/FeaturesClean.astro';
+import AboutClean from '../components/about/cleantech/AboutClean.astro';
+import CTAClean from '../components/cta/cleantech/CTAClean.astro';
+import BlogClean from '../components/blog/cleantech/BlogClean.astro';
+import PricingClean from '../components/pricing/cleantech/PricingClean.astro';
+import TestimonialsClean from '../components/testimonials/cleantech/TestimonialsClean.astro';
+import FAQClean from '../components/faq/cleantech/FAQClean.astro';
+import ContactClean from '../components/contact/cleantech/ContactClean.astro';
+import FooterClean from '../components/footers/cleantech/FooterClean.astro';
+import { ThemeToggle } from '../components/utils/ThemeToggle';
+---
+
+<Layout title="Lego 4.0 - Clean Tech Edition">
+    <NavbarClean client:load />
+    
+    <main>
+        <HeroClean />
+        <FeaturesClean />
+        <AboutClean />
+        <BlogClean />
+        <PricingClean />
+        <TestimonialsClean />
+        <FAQClean />
+        <CTAClean />
+        <ContactClean />
+    </main>
+
+    <FooterClean />
+    <ThemeToggle client:load />
+</Layout>
+
+<style is:global>
+    body {
+        cursor: default;
+    }
+    ::selection {
+        background-color: #3b82f6;
+        color: white;
+    }
+</style>

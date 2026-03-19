@@ -1,0 +1,153 @@
+---
+// Importa los componentes que acabamos de crear
+import Layout from '../../layouts/Layout.astro';
+import Header01 from '../../components/navigation/Header01.astro';
+import Hero01 from '../../components/heroes/Hero01.astro';
+import Features01 from '../../components/features/Features01.astro';
+import CTA01 from '../../components/cta/CTA01.astro';
+import Footer01 from '../../components/footers/Footer01.astro';
+---
+
+<Layout title="Mi Página de Ejemplo">
+  <!-- Header -->
+  <Header01 
+    siteName="MiEmpresa"
+    navigation={[
+      { label: "Inicio", href: "/" },
+      { label: "Características", href: "#caracteristicas" },
+      { label: "Precios", href: "/precios" },
+      { label: "Acerca", href: "/acerca" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contacto", href: "/contacto" }
+    ]}
+    showCTA={true}
+    ctaText="Empezar gratis"
+    ctaHref="/empezar"
+  />
+
+  <main>
+    <!-- Hero Section -->
+    <Hero01 
+      title="La plataforma que revoluciona tu negocio"
+      subtitle="🚀 Innovación sin límites"
+      description="Transforma tu empresa con nuestras herramientas de última generación. Automatiza procesos, aumenta la productividad y escala sin esfuerzo."
+      primaryCTA={{
+        text: "Comenzar gratis",
+        href: "/registro"
+      }}
+      secondaryCTA={{
+        text: "Ver demo",
+        href: "/demo"
+      }}
+      showStats={true}
+      stats={[
+        { number: "50K+", label: "Clientes felices" },
+        { number: "99.9%", label: "Tiempo activo" },
+        { number: "24/7", label: "Soporte técnico" }
+      ]}
+      heroImage="/placeholder-dashboard.jpg"
+    />
+
+    <!-- Features Section -->
+    <Features01 
+      title="Todo lo que necesitas en un solo lugar"
+      subtitle="Características principales"
+      description="Descubre por qué miles de empresas eligen nuestra plataforma para impulsar su crecimiento y optimizar sus operaciones."
+      features={[
+        {
+          icon: "rocket",
+          title: "Implementación Rápida",
+          description: "Configura y ejecuta en minutos, no en meses. Nuestra interfaz intuitiva te permite empezar de inmediato.",
+          color: "blue"
+        },
+        {
+          icon: "shield",
+          title: "Seguridad Avanzada",
+          description: "Protección de datos de nivel bancario con cifrado AES-256 y cumplimiento completo de GDPR.",
+          color: "green"
+        },
+        {
+          icon: "chart",
+          title: "Analytics en Tiempo Real",
+          description: "Monitorea el rendimiento con dashboards interactivos y reportes automatizados personalizables.",
+          color: "purple"
+        },
+        {
+          icon: "code",
+          title: "API Flexible",
+          description: "Integración perfecta con tu stack tecnológico actual mediante nuestra API RESTful completa.",
+          color: "orange"
+        },
+        {
+          icon: "users",
+          title: "Colaboración Fluida",
+          description: "Herramientas de trabajo en equipo que mantienen a todos sincronizados y productivos.",
+          color: "pink"
+        },
+        {
+          icon: "support",
+          title: "Soporte Excepcional",
+          description: "Equipo de expertos disponible 24/7 para resolver cualquier duda o problema técnico.",
+          color: "indigo"
+        }
+      ]}
+    />
+
+    <!-- CTA Section -->
+    <CTA01 
+      title="¿Listo para llevar tu empresa al siguiente nivel?"
+      description="Únete a más de 50,000 empresas que ya están transformando su manera de trabajar con nuestra plataforma."
+      primaryButton={{
+        text: "Empezar prueba gratuita",
+        href: "/registro"
+      }}
+      secondaryButton={{
+        text: "Agendar demo",
+        href: "/demo"
+      }}
+      showSecondaryButton={true}
+      backgroundStyle="gradient"
+    />
+  </main>
+
+  <!-- Footer -->
+  <Footer01 
+    siteName="MiEmpresa"
+    description="Empoderamos a las empresas con tecnología de vanguardia para automatizar procesos, optimizar recursos y acelerar el crecimiento sostenible."
+    showNewsletter={true}
+    socialLinks={[
+      { name: "Twitter", href: "https://twitter.com/miempresa", icon: "twitter" },
+      { name: "LinkedIn", href: "https://linkedin.com/company/miempresa", icon: "linkedin" },
+      { name: "GitHub", href: "https://github.com/miempresa", icon: "github" }
+    ]}
+    footerLinks={[
+      {
+        title: "Producto",
+        links: [
+          { label: "Características", href: "/caracteristicas" },
+          { label: "Integraciones", href: "/integraciones" },
+          { label: "API", href: "/api" },
+          { label: "Precios", href: "/precios" }
+        ]
+      },
+      {
+        title: "Recursos",
+        links: [
+          { label: "Documentación", href: "/docs" },
+          { label: "Guías", href: "/guias" },
+          { label: "Blog", href: "/blog" },
+          { label: "Webinars", href: "/webinars" }
+        ]
+      },
+      {
+        title: "Soporte",
+        links: [
+          { label: "Centro de Ayuda", href: "/ayuda" },
+          { label: "Contacto", href: "/contacto" },
+          { label: "Estado del Sistema", href: "/estado" },
+          { label: "Comunidad", href: "/comunidad" }
+        ]
+      }
+    ]}
+  />
+</Layout>

@@ -1,0 +1,67 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Nuestro Lado Creativo",
+  description = "Rompemos las reglas convencionales para crear algo verdaderamente único. Nuestra pasión es el diseño que desafía el status quo."
+} = Astro.props;
+---
+
+<section class="py-24 bg-indigo-900 text-white overflow-hidden relative">
+  <!-- Creative Background Elements -->
+  <div class="absolute top-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="order-2 lg:order-1">
+        <div class="relative group">
+          <div class="absolute -inset-2 bg-gradient-to-r from-pink-500 to-violet-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+          <div class="relative bg-black rounded-xl p-2 h-full">
+            <img 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2670" 
+              alt="Creative Team" 
+              class="rounded-lg w-full aspect-video object-cover"
+            />
+          </div>
+          <!-- Abstract Overlay -->
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center p-8 transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+             <span class="text-black font-black text-center leading-none">CRAFTED WITH PASSION</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <h2 class="text-5xl lg:text-7xl font-black mb-8 leading-none tracking-tighter">
+          {title}
+        </h2>
+        <p class="text-xl text-indigo-100 mb-12 leading-relaxed">
+          {description}
+        </p>
+        <div class="space-y-6">
+           <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                 <span class="font-bold text-pink-400">01</span>
+              </div>
+              <p class="text-lg font-medium">Conceptos Disruptivos</p>
+           </div>
+           <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                 <span class="font-bold text-blue-400">02</span>
+              </div>
+              <p class="text-lg font-medium">Ejecución Impecable</p>
+           </div>
+           <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                 <span class="font-bold text-yellow-400">03</span>
+              </div>
+              <p class="text-lg font-medium">Impacto Real</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

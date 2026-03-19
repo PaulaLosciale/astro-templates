@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  primaryButton?: { text: string; href: string };
+  secondaryButton?: { text: string; href: string };
+  badge?: string;
+}
+
+const {
+  title = "¿Impulsamos tu proyecto juntos?",
+  description = "No esperes más para tener la web que tu negocio merece. Comienza hoy mismo con nuestra prueba gratuita de 14 días.",
+  primaryButton = { text: "Comenzar ahora", href: "/get-started" },
+  secondaryButton = { text: "Ver planes", href: "/pricing" },
+  badge = "Oferta de lanzamiento: 20% de descuento"
+} = Astro.props;
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="relative overflow-hidden bg-gray-900 rounded-[3rem] p-12 lg:p-24 shadow-2xl">
+      <!-- Background Abstract Shapes -->
+      <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <div class="relative z-10 text-center max-w-4xl mx-auto">
+        <span class="inline-block px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold uppercase tracking-widest mb-8 border border-blue-500/20">
+          {badge}
+        </span>
+        
+        <h2 class="text-4xl lg:text-6xl font-black text-white mb-10 leading-tight">
+          {title}
+        </h2>
+        
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          {description}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a 
+            href={primaryButton.href} 
+            class="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-600/20 hover:-translate-y-1 transform"
+          >
+            {primaryButton.text}
+          </a>
+          <a 
+            href={secondaryButton.href} 
+            class="w-full sm:w-auto px-10 py-5 bg-transparent text-white border-2 border-white/20 rounded-2xl font-bold text-lg hover:bg-white/10 transition hover:-translate-y-1 transform"
+          >
+            {secondaryButton.text}
+          </a>
+        </div>
+        
+        <!-- Trust Elements beneath buttons -->
+        <div class="mt-12 flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+           <div class="flex items-center gap-2 text-white">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span class="text-sm font-medium">Sin tarjeta de crédito</span>
+           </div>
+           <div class="flex items-center gap-2 text-white">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span class="text-sm font-medium">Instalación en 1-click</span>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

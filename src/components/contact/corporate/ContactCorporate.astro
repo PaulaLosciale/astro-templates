@@ -1,0 +1,19 @@
+---
+import { ContactForm } from '../modern/ContactForm';
+---
+<section class="py-32 bg-gray-900 text-white relative">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+     <div>
+        <h4 class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-8">Póngase en contacto</h4>
+        <h2 class="text-6xl font-serif font-bold mb-12 leading-[1.1]">Inicie su <span class="italic font-light">Estrategia</span>.</h2>
+        <p class="text-xl text-gray-400 font-light leading-relaxed mb-12">Nuestro equipo de consultores seniors evaluará su caso en menos de 12 horas hábiles.</p>
+        <div class="p-8 border-l border-primary-500 bg-gray-800/50">
+           <p class="font-bold text-sm uppercase tracking-widest text-primary-500 mb-2">Oficina Central</p>
+           <p class="text-lg">Plaza de la Independencia, 28001 Madrid, España</p>
+        </div>
+     </div>
+     <div class="bg-white p-2">
+        <ContactForm client:visible />
+     </div>
+  </div>
+</section>

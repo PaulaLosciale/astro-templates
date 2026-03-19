@@ -1,0 +1,104 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  plans?: Array<{
+    name: string;
+    price: string;
+    period?: string;
+    description: string;
+    features: string[];
+    buttonText: string;
+    popular?: boolean;
+    color?: string;
+  }>;
+}
+
+const {
+  title = "Planes que crecen contigo",
+  subtitle = "Precios Transparentes",
+  plans = [
+    {
+      name: "Básico",
+      price: "0",
+      period: "/mes",
+      description: "Ideal para proyectos personales y pequeñas startups.",
+      features: ["Hasta 3 proyectos", "Análisis básico", "Soporte comunitario", "1 habitante"],
+      buttonText: "Empezar Gratis",
+      popular: false
+    },
+    {
+      name: "Profesional",
+      price: "49",
+      period: "/mes",
+      description: "Para empresas que buscan escalar con herramientas avanzadas.",
+      features: ["Proyectos ilimitados", "Análisis en tiempo real", "Soporte prioritario 24/7", "Hasta 10 habitantes", "Custom Domain"],
+      buttonText: "Comenzar Prueba",
+      popular: true,
+      color: "blue"
+    },
+    {
+      name: "Empresa",
+      price: "99",
+      period: "/mes",
+      description: "Soluciones a medida para grandes organizaciones.",
+      features: ["Todo lo de Pro", "Seguridad Enterprise", "API de alto rendimiento", "Asesor dedicado", "SLA garantizado"],
+      buttonText: "Contactar Ventas",
+      popular: false
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-white relative">
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
+        {subtitle}
+      </h2>
+      <h3 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+        {title}
+      </h3>
+      <p class="text-xl text-gray-600">
+        Elige el plan que mejor se adapte a tus necesidades. Sin contratos ocultos ni sorpresas.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+      {plans.map((plan) => (
+        <div class={`relative p-10 rounded-[2.5rem] border ${plan.popular ? 'border-blue-600 shadow-2xl scale-105 z-20 bg-white' : 'border-gray-100 shadow-sm bg-gray-50' } transition-all duration-300 hover:shadow-xl flex flex-col`}>
+          {plan.popular && (
+            <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-1 rounded-full text-sm font-bold uppercase tracking-widest">
+              Más Popular
+            </div>
+          )}
+          
+          <div class="mb-8">
+            <h4 class="text-2xl font-bold text-gray-900 mb-4">{plan.name}</h4>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-4xl lg:text-5xl font-black text-gray-900">${plan.price}</span>
+              <span class="text-gray-500 font-medium">{plan.period}</span>
+            </div>
+            <p class="text-gray-600 leading-relaxed">{plan.description}</p>
+          </div>
+          
+          <ul class="space-y-4 mb-10 flex-grow">
+            {plan.features.map(feature => (
+              <li class="flex items-start gap-3">
+                <svg class={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-blue-600' : 'text-green-500' }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a 
+            href="#" 
+            class={`w-full py-4 rounded-2xl font-bold text-lg text-center transition-all duration-300 ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-xl shadow-blue-200' : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600 hover:text-blue-600' }`}
+          >
+            {plan.buttonText}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row gap-4 mb-20 items-end justify-between">
+       <h2 class="text-5xl font-black text-gray-900 dark:text-white tracking-tighter">Voces que importan.</h2>
+       <button class="text-primary-500 font-bold border-b-2 border-primary-500 pb-1">Ver todos los casos →</button>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+       {[1,2,3].map(i => (
+         <div class="p-8 bg-gray-50 dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 group hover:bg-primary-500 transition-all duration-500">
+            <div class="w-10 h-10 bg-white dark:bg-gray-800 rounded-full mb-8 flex items-center justify-center font-black group-hover:text-primary-500 transition-colors">“</div>
+            <p class="text-gray-600 dark:text-gray-400 group-hover:text-white font-medium mb-12 transition-colors">La flexibilidad de cada pieza de Lego 3.0 es simplemente imbatible en el mercado actual.</p>
+            <div>
+               <h4 class="font-bold group-hover:text-white transition-colors dark:text-white">Usuario Moderno</h4>
+               <p class="text-xs text-gray-400 group-hover:text-white/60 transition-colors">Founder de Startup</p>
+            </div>
+         </div>
+       ))}
+    </div>
+  </div>
+</section>

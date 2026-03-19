@@ -1,0 +1,63 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title = "Menos es Más",
+  description = "Diseño ultra-minimalista enfocado en la claridad y el propósito. Sin distracciones, solo resultados.",
+  ctaText = "Comenzar Proyecto",
+  ctaHref = "/contact"
+} = Astro.props;
+---
+
+<section class="py-32 bg-white text-gray-900 overflow-hidden relative">
+  <!-- Minimalist Background Image -->
+  <div class="absolute inset-0 z-0 opacity-5">
+    <img 
+      src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2670" 
+      alt="Background" 
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <div class="container mx-auto px-6 text-center max-w-4xl">
+    <div class="inline-block p-1 mb-8 bg-gray-100 rounded-lg">
+      <div class="px-4 py-1.5 bg-white rounded-md text-xs font-bold tracking-widest uppercase">
+        Estilo Minimalista
+      </div>
+    </div>
+    
+    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-12 leading-none">
+      {title}
+    </h1>
+    
+    <p class="text-2xl text-gray-500 mb-16 leading-relaxed font-medium">
+      {description}
+    </p>
+    
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+      <a 
+        href={ctaHref} 
+        class="w-full md:w-auto px-12 py-5 bg-black text-white rounded-full font-bold text-lg hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"
+      >
+        {ctaText}
+      </a>
+      <a 
+        href="#features" 
+        class="w-full md:w-auto px-12 py-5 bg-transparent text-black border-2 border-black rounded-full font-bold text-lg hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95"
+      >
+        Ver Características
+      </a>
+    </div>
+
+    <!-- Minimal Decoration -->
+    <div class="mt-32 flex justify-center gap-2">
+      <div class="w-1.5 h-12 bg-gray-200 rounded-full"></div>
+      <div class="w-1.5 h-24 bg-gray-900 rounded-full"></div>
+      <div class="w-1.5 h-12 bg-gray-200 rounded-full"></div>
+    </div>
+  </div>
+</section>

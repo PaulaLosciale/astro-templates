@@ -1,0 +1,14 @@
+---
+import { ContactForm } from './ContactForm';
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+       <span class="text-primary-500 font-bold mb-4 block animate-bounce border border-primary-500 inline-block px-4 py-1 rounded-full text-xs uppercase tracking-widest">Lego 3.0</span>
+       <h2 class="text-5xl font-black dark:text-white tracking-tighter">¿Tienes un <span class="text-primary-500 italic">proyecto</span>?</h2>
+    </div>
+    <div class="bg-gray-50 dark:bg-gray-900/50 p-8 md:p-12 rounded-[3.5rem] border border-gray-100 dark:border-gray-800">
+       <ContactForm client:visible />
+    </div>
+  </div>
+</section>

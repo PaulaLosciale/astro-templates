@@ -1,0 +1,23 @@
+:root {
+  /* Primary Colors */
+  --color-primary-50: 240 100% 98%;
+  --color-primary-100: 240 100% 95%;
+  --color-primary-500: 240 100% 50%; /* Pure Blue default */
+  --color-primary-600: 240 100% 40%;
+  --color-primary-700: 240 100% 30%;
+
+  /* Secondary Colors */
+  --color-secondary-500: 270 100% 50%; /* Purple default */
+  
+  /* Accent Colors */
+  --color-accent-500: 180 100% 50%; /* Cyan default */
+
+  /* Neutral & Backgrounds */
+  --color-bg-light: 0 0% 100%;
+  --color-bg-dark: 220 33% 10%;
+  
+  /* Text */
+  --color-text-light: 220 33% 10%;
+  --color-text-dark: 210 40% 98%;
+}
+

@@ -1,0 +1,20 @@
+---
+---
+<section class="py-32 bg-gray-50 dark:bg-gray-900 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
+     <div>
+        <h4 class="text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">Centro de Ayuda</h4>
+        <h2 class="text-5xl font-serif font-bold text-gray-900 dark:text-white mb-8">Preguntas <span class="italic font-light">Frecuentes</span></h2>
+        <p class="text-gray-500 dark:text-gray-400 text-lg mb-12">Si no encuentra la respuesta que busca, nuestro equipo de soporte corporativo está disponible 24/7.</p>
+        <button class="bg-gray-900 text-white px-10 py-4 font-bold uppercase tracking-widest text-xs">Contactar Soporte</button>
+     </div>
+     <div class="space-y-8">
+        {[1,2,3].map(i => (
+           <div class="border-b border-gray-200 dark:border-gray-800 pb-8">
+              <h3 class="text-xl font-bold dark:text-white mb-4 uppercase tracking-tight">¿Cumplen con GDPR?</h3>
+              <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed">Absolutamente. La privacidad y el cumplimiento son pilares de nuestra infraestructura global.</p>
+           </div>
+        ))}
+     </div>
+  </div>
+</section>

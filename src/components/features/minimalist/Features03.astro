@@ -1,0 +1,41 @@
+---
+export interface Props {
+  features?: Array<{
+    title: string;
+    description: string;
+  }>;
+}
+
+const {
+  features = [
+    { title: "Rendimiento", description: "Velocidad de carga instantánea optimizada para la Web moderna." },
+    { title: "Escalabilidad", description: "Arquitectura pensada para crecer con tu negocio sin fricciones." },
+    { title: "Seguridad", description: "Protocolos de cifrado de grado bancario para proteger tus datos." },
+    { title: "Diseño", description: "Interfaces intuitivas centradas en la experiencia del usuario final." }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-gray-50" id="features">
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mb-20">
+      <h2 class="text-4xl font-black text-gray-900 mb-6 tracking-tight">Esencial & Efectivo</h2>
+      <p class="text-xl text-gray-600">Nos enfocamos en lo que realmente importa para tu éxito.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {features.map((feature, i) => (
+        <div class="group">
+          <div class="text-4xl font-black text-gray-200 mb-6 group-hover:text-black transition-colors duration-300">
+            {String(i + 1).padStart(2, '0')}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+          <p class="text-gray-600 leading-relaxed">
+            {feature.description}
+          </p>
+          <div class="mt-8 h-1 w-0 bg-black group-hover:w-full transition-all duration-500"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+const { title = "Simplifica.", description = "Diseñamos interfaces que desaparecen para dejar que el contenido brille." } = Astro.props;
+---
+<section class="py-32 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-4xl mx-auto px-6 border-l-4 border-primary-500">
+    <h1 class="text-6xl md:text-8xl font-black text-gray-900 dark:text-white mb-12 tracking-tighter">
+      {title}
+    </h1>
+    <p class="text-2xl text-gray-400 dark:text-gray-500 max-w-xl font-medium leading-relaxed mb-16">
+      {description}
+    </p>
+    <a href="#" class="inline-block text-xl font-bold dark:text-white border-b-2 border-primary-500 pb-2 hover:border-black dark:hover:border-white transition-all">
+       Saber más
+    </a>
+  </div>
+</section>

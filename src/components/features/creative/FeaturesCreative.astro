@@ -1,0 +1,23 @@
+---
+---
+<section class="py-32 bg-black text-white relative overflow-hidden">
+  <div class="absolute -left-20 top-0 w-96 h-96 bg-primary-500/20 blur-[120px] rounded-full"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
+       <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter leading-none">THE<br/>LIST.</h2>
+       <p class="max-w-sm text-white/50 font-black uppercase text-xs tracking-widest leading-loose">Capabilities beyond the reach of standard templates.</p>
+    </div>
+    
+    <div class="space-y-1">
+      {['Interface Design', '3D Motion', 'Strategy', 'Development'].map(item => (
+        <div class="group border-t border-white/10 py-12 flex justify-between items-center hover:bg-white transition-all cursor-pointer px-4">
+           <h3 class="text-4xl md:text-6xl font-black italic group-hover:text-black transition-colors">{item}</h3>
+           <div class="w-12 h-12 rounded-full border border-white/20 group-hover:bg-primary-500 group-hover:border-primary-500 flex items-center justify-center transition-all">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+           </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

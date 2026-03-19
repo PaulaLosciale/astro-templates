@@ -1,0 +1,28 @@
+---
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-end gap-4 mb-20">
+       <h2 class="text-5xl font-black dark:text-white tracking-tighter">Últimas <span class="text-primary-500">Historias</span>.</h2>
+       <div class="flex gap-4">
+          <button class="px-6 py-2 bg-gray-100 dark:bg-gray-900 rounded-full text-xs font-bold uppercase tracking-widest text-primary-500">Diseño</button>
+          <button class="px-6 py-2 bg-gray-100 dark:bg-gray-900 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400">Dev</button>
+       </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+       {[1,2,3].map(i => (
+         <div class="group overflow-hidden rounded-[2.5rem] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-all shadow-xl shadow-transparent hover:shadow-primary-500/5">
+            <div class="aspect-square bg-gray-200 dark:bg-gray-800"></div>
+            <div class="p-8">
+               <span class="text-xs font-bold text-primary-500 uppercase tracking-widest">Tutorial — 5 min</span>
+               <h3 class="text-2xl font-bold dark:text-white mt-4 mb-6 leading-tight">Cómo dominar React con Astro en 2026.</h3>
+               <button class="text-sm font-bold dark:text-white flex items-center gap-2 group-hover:text-primary-500 transition-colors">
+                 Leer artículo <span class="group-hover:translate-x-2 transition-transform">→</span>
+               </button>
+            </div>
+         </div>
+       ))}
+    </div>
+  </div>
+</section>

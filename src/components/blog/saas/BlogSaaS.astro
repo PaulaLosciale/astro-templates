@@ -1,0 +1,25 @@
+---
+const posts = [
+  { title: "Nuevas funciones de IA", date: "Marzo 2026" },
+  { title: "Escalando tu equipo", date: "Febrero 2026" }
+];
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-end mb-16">
+       <h2 class="text-4xl font-black dark:text-white">Blog de <span class="text-primary-500">Producto</span></h2>
+       <a href="#" class="text-primary-600 font-bold">Ver todo →</a>
+    </div>
+    <div class="space-y-6">
+       {posts.map(p => (
+         <div class="group flex flex-col md:flex-row justify-between items-center p-8 bg-gray-50 dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-primary-500 transition-all">
+            <div>
+               <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">{p.date}</span>
+               <h3 class="text-2xl font-bold dark:text-white mt-2 group-hover:text-primary-500 transition-colors">{p.title}</h3>
+            </div>
+            <button class="mt-4 md:mt-0 px-6 py-2 bg-white dark:bg-gray-800 rounded-full text-sm font-bold dark:text-white group-hover:bg-primary-500 group-hover:text-white transition-all shadow-sm">Leer más</button>
+         </div>
+       ))}
+    </div>
+  </div>
+</section>

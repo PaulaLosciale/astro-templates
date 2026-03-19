@@ -1,0 +1,19 @@
+---
+const { siteName = "CREATIVE" } = Astro.props;
+---
+<footer class="bg-primary-500 text-white py-32 overflow-hidden relative">
+  <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10">
+    <span class="text-[20rem] font-black italic tracking-tighter select-none">{siteName}</span>
+  </div>
+  
+  <div class="container mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-5xl md:text-8xl font-black italic mb-12 tracking-tighter uppercase">¿Nuevos Retos?</h2>
+    <a href="mailto:hola@creative.com" class="text-3xl md:text-5xl font-light underline underline-offset-[16px] decoration-white/30 hover:decoration-white transition-all">hola@creative.com</a>
+    
+    <div class="mt-24 flex justify-center gap-12 font-black text-xs tracking-[0.3em] uppercase opacity-60">
+      <a href="#" class="hover:text-black transition-colors">Behance</a>
+      <a href="#" class="hover:text-black transition-colors">Twitter</a>
+      <a href="#" class="hover:text-black transition-colors">Studio</a>
+    </div>
+  </div>
+</footer>

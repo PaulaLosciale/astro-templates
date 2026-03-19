@@ -1,0 +1,32 @@
+---
+const { title = "Diseño que Transforma", description = "Creamos experiencias digitales que conectan marcas con personas." } = Astro.props;
+---
+<section class="relative min-h-[90vh] flex items-center bg-white dark:bg-gray-950 transition-colors overflow-hidden">
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-primary-50 dark:bg-primary-900/10 skew-x-12 translate-x-32 z-0 transition-colors"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="animate-fade-in-up">
+      <h1 class="text-7xl md:text-8xl font-black text-gray-900 dark:text-white leading-none mb-8">
+        {title.split(' ').slice(0, -1).join(' ')} <span class="text-primary-500">{title.split(' ').pop()}</span>
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-lg leading-relaxed">
+        {description}
+      </p>
+      <div class="flex items-center gap-6">
+        <button class="bg-primary-500 hover:bg-primary-600 text-white px-10 py-5 rounded-full font-bold shadow-xl shadow-primary-500/20 transition-all hover:scale-105 active:scale-95">Comenzar Ahora</button>
+        <button class="text-gray-900 dark:text-white font-bold flex items-center gap-2 group">
+           Ver Portfolio <span class="group-hover:translate-x-2 transition-transform">→</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="hidden lg:block relative">
+       <div class="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded-[3rem] rotate-3 shadow-2xl overflow-hidden border-8 border-white dark:border-gray-900">
+          <div class="absolute inset-0 bg-primary-500/10 dark:bg-primary-500/5 mix-blend-overlay"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+             <span class="text-gray-400 font-bold">MODERN VISUAL</span>
+          </div>
+       </div>
+    </div>
+  </div>
+</section>

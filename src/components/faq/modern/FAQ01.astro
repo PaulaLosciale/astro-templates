@@ -1,0 +1,81 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const {
+  title = "Preguntas Frecuentes",
+  subtitle = "FAQ",
+  faqs = [
+    {
+      question: "¿Qué es Astro y por qué lo usamos?",
+      answer: "Astro es un framework web moderno diseñado para la velocidad. Utiliza una arquitectura de islas que envía cero JavaScript al cliente por defecto, lo que resulta en tiempos de carga ultrarrápidos."
+    },
+    {
+      question: "¿Puedo personalizar los componentes?",
+      answer: "¡Absolutamente! Todos nuestros componentes están construidos con Tailwind CSS y son altamente modulares. Puedes cambiar colores, tipografías y layouts simplemente editando las props o las clases de Tailwind."
+    },
+    {
+      question: "¿Ofrecen soporte técnico para la implementación?",
+      answer: "Sí, contamos con un equipo de soporte dedicado y documentación detallada para ayudarte a integrar nuestros componentes en tus proyectos de manera fluida."
+    },
+    {
+      question: "¿Necesito conocimientos avanzados de programación?",
+      answer: "No necesariamente. Aunque un conocimiento básico de HTML y CSS es útil, nuestros componentes estilo Lego están diseñados para ser copias y pegues fáciles con configuraciones intuitivas."
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
+        {subtitle}
+      </h2>
+      <h3 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+        Resolveremos tus dudas
+      </h3>
+      <p class="text-xl text-gray-600">
+        Aquí tienes las respuestas a las preguntas más comunes sobre nuestra plataforma y componentes.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="group bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-200 transition-all duration-300">
+          <details class="p-6 md:p-8 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <h4 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                {faq.question}
+              </h4>
+              <span class="flex-shrink-0 ml-4 transition duration-300 group-open:-rotate-180">
+                <svg class="w-6 h-6 text-gray-500 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </summary>
+            
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <p class="text-gray-600 leading-relaxed text-lg">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Support CTA -->
+    <div class="mt-20 text-center">
+       <p class="text-gray-500 mb-6">¿Aún tienes dudas?</p>
+       <a href="/contacto" class="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline">
+          Hablar con un experto
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+       </a>
+    </div>
+  </div>
+</section>

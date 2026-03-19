@@ -1,0 +1,44 @@
+---
+const { siteName = "CorpLink" } = Astro.props;
+---
+<footer class="bg-gray-900 text-white py-20 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="space-y-6">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary-500"></div>
+        <span class="text-2xl font-serif font-bold uppercase tracking-widest">{siteName}</span>
+      </div>
+      <p class="text-gray-400 leading-relaxed font-light">
+        Líderes globales en transformación digital y consultoría estratégica para empresas del Fortune 500.
+      </p>
+    </div>
+    
+    <div>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-primary-500 mb-8">Soluciones</h3>
+      <ul class="space-y-4 text-sm text-gray-400 font-medium">
+        <li><a href="#" class="hover:text-white transition-colors">Cloud Excellence</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">AI & Data Science</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Cybersecurity</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-primary-500 mb-8">Oficinas</h3>
+      <ul class="space-y-4 text-sm text-gray-400 font-light">
+        <li>Madrid - P. de la Castellana</li>
+        <li>London - Canary Wharf</li>
+        <li>New York - Wall Street</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-primary-500 mb-8">Newsletter</h3>
+      <form class="flex gap-2">
+        <input type="email" placeholder="Email corporativo" class="bg-gray-800 border-none rounded-sm px-4 py-3 text-sm flex-1 outline-none focus:ring-1 focus:ring-primary-500" />
+        <button class="bg-primary-600 p-3 rounded-sm hover:bg-primary-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</footer>

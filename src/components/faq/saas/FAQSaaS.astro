@@ -1,0 +1,24 @@
+---
+const questions = [
+  { q: "¿Tienen prueba gratuita?", a: "Sí, todos los planes incluyen 14 días gratis." },
+  { q: "¿Es seguro mi pago?", a: "Usamos Stripe con encriptación de grado bancario." }
+];
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-12 text-center tracking-tighter italic">FAQ.</h2>
+    <div class="space-y-4">
+      {questions.map((item, i) => (
+        <details class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 open:border-primary-500 overflow-hidden transiton-all">
+           <summary class="flex justify-between items-center p-6 cursor-pointer font-bold dark:text-white list-none">
+              {item.q}
+              <span class="text-primary-500 group-open:rotate-45 transition-transform">+</span>
+           </summary>
+           <div class="p-6 pt-0 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              {item.a}
+           </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

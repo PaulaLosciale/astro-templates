@@ -1,0 +1,30 @@
+---
+const { title = "NUEVA ERA", subtitle = "CREATIVA" } = Astro.props;
+---
+<section class="h-screen bg-black flex flex-col items-center justify-center p-6 text-center overflow-hidden relative">
+  <div class="absolute inset-0 z-0 bg-gradient-radial from-primary-500/20 to-transparent"></div>
+  
+  <div class="relative z-10 flex flex-col items-center">
+    <span class="text-primary-500 font-black tracking-[1em] uppercase text-xs mb-8 animate-pulse">Experimenta lo Extraordinario</span>
+    <h1 class="text-[15vw] font-black text-white italic leading-[0.8] tracking-tighter mb-12">
+      {title}<br/><span class="text-outline-white dark:text-outline-primary whitespace-nowrap">{subtitle}</span>
+    </h1>
+    
+    <div class="flex gap-12 text-white/40 font-black text-[0.6rem] uppercase tracking-widest">
+       <span>Design</span>
+       <span class="text-white">Motion</span>
+       <span>Code</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="w-px h-24 bg-gradient-to-b from-primary-500 to-transparent"></div>
+  </div>
+</section>
+
+<style>
+  .text-outline-white {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+</style>

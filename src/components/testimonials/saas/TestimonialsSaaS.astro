@@ -1,0 +1,25 @@
+---
+const t = [
+  { name: "Alex Rivera", role: "CTO @ TechFlow", content: "Lego 3.0 cambió nuestra forma de construir frontends." },
+  { name: "Maria Garcia", role: "Product Designer", content: "La integración con React es perfecta y muy fluida." }
+];
+---
+<section class="py-24 bg-gray-50 dark:bg-gray-900 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+     <h2 class="text-4xl font-black mb-16 dark:text-white">Lo que dicen los <span class="text-primary-500">expertos</span></h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {t.map(item => (
+          <div class="p-10 bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 text-left transition-all hover:-translate-y-2">
+             <p class="text-lg text-gray-600 dark:text-gray-300 italic mb-8">"{item.content}"</p>
+             <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-primary-500 rounded-full"></div>
+                <div>
+                   <h4 class="font-bold dark:text-white">{item.name}</h4>
+                   <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">{item.role}</p>
+                </div>
+             </div>
+          </div>
+        ))}
+     </div>
+  </div>
+</section>

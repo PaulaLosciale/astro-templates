@@ -1,0 +1,53 @@
+---
+export interface Props {
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const {
+  faqs = [
+    {
+      question: "¿Cómo integro estos componentes en mi proyecto existente?",
+      answer: "Solo tienes que copiar el archivo .astro a tu carpeta de componentes y asegurarte de tener Tailwind CSS configurado. Son totalmente independientes."
+    },
+    {
+      question: "¿Es posible personalizar los colores y fuentes?",
+      answer: "¡Absolutamente! Cada componente usa variables de Tailwind que puedes sobrescribir o cambiar directamente en el código para ajustarlo a tu identidad visual."
+    },
+    {
+      question: "¿Tienen soporte para animaciones?",
+      answer: "Sí, muchos de nuestros componentes incluyen clases de animación nativas de Tailwind o scripts ligeros para transiciones suaves hacia el éxito."
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <div class="text-center mb-16">
+       <h2 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Preguntas Frecuentes</h2>
+       <div class="h-1.5 w-20 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="space-y-6">
+      {faqs.map((faq, i) => (
+        <details class="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-xl font-bold text-gray-900 group-open:text-blue-600 transition-colors">
+              <span class="text-blue-600/30 mr-4 font-black">0{i+1}</span>
+              {faq.question}
+            </h3>
+            <span class="transition duration-300 group-open:-rotate-180">
+              <svg class="w-6 h-6 text-gray-400 group-open:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </span>
+          </summary>
+          <div class="mt-6 text-gray-600 leading-relaxed pl-10 border-l border-blue-200">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

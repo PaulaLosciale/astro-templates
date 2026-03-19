@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  mission?: string;
+  vision?: string;
+  image?: string;
+  stats?: Array<{ label: string; value: string }>;
+}
+
+const {
+  title = "Nuestra Historia",
+  subtitle = "Sobre Nosotros",
+  description = "Llevamos más de una década transformando el panorama digital con soluciones innovadoras y un enfoque centrado en el cliente.",
+  mission = "Empoderar a las empresas mediante tecnología de vanguardia y diseño excepcional.",
+  vision = "Ser el referente global en soluciones digitales que impulsan el crecimiento sostenible.",
+  image = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2670",
+  stats = [
+    { label: "Experiencia", value: "12+ Años" },
+    { label: "Proyectos", value: "500+" }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-gray-50 overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      <div class="w-full lg:w-1/2 relative group custom-fade-in">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl opacity-20 blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-3xl shadow-2xl aspect-video">
+          <img src={image} alt={title} class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2">
+        <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-widest text-blue-600 uppercase bg-blue-100 rounded-full">{subtitle}</span>
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8">{title}</h2>
+        <p class="text-xl text-gray-600 mb-10">{description}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+           <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+              <h3 class="font-bold text-gray-900 mb-2">Misión</h3>
+              <p class="text-gray-600 text-sm">{mission}</p>
+           </div>
+           <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+              <h3 class="font-bold text-gray-900 mb-2">Visión</h3>
+              <p class="text-gray-600 text-sm">{vision}</p>
+           </div>
+        </div>
+        <div class="flex gap-12 border-t border-gray-200 pt-10">
+           {stats.map(s => (
+             <div><p class="text-3xl font-bold text-gray-900">{s.value}</p><p class="text-sm text-gray-500">{s.label}</p></div>
+           ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .custom-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+</style>

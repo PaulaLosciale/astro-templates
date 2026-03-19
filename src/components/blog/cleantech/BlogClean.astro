@@ -1,0 +1,21 @@
+---
+---
+<section class="py-24 bg-white dark:bg-black transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-6">
+     <div class="text-left mb-20">
+        <h2 class="text-3xl font-bold dark:text-white mb-2">Noticias.</h2>
+        <p class="text-gray-400 font-light">Actualizaciones de software y hardware.</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {[1,2].map(i => (
+           <div class="group cursor-pointer">
+              <div class="aspect-video bg-gray-50 dark:bg-gray-900 rounded-[2rem] mb-8 overflow-hidden border border-gray-100 dark:border-gray-800 transition-all group-hover:shadow-2xl">
+                 <div class="w-full h-full flex items-center justify-center text-gray-200 dark:text-gray-800 text-6xl font-black">IMAGE</div>
+              </div>
+              <span class="text-xs font-bold text-primary-600 uppercase tracking-widest mb-2 block">Actualidad</span>
+              <h3 class="text-2xl font-bold dark:text-white leading-tight">Lego 4.0 Pro: Rediseñado desde el núcleo.</h3>
+           </div>
+        ))}
+     </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="relative">
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-100 dark:bg-primary-900/20 rounded-full blur-3xl"></div>
+        <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-xl">
+           <div class="space-y-6">
+              {[1,2,3].map(i => (
+                <div class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                  <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white">✓</div>
+                  <div class="h-2 w-32 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                     <div class="h-full bg-primary-500" style={`width: ${i*30}%`}></div>
+                  </div>
+                </div>
+              ))}
+           </div>
+        </div>
+      </div>
+      
+      <div>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-8 leading-tight tracking-tighter">
+          Diseñado para el <span class="text-primary-500 italic">alto rendimiento</span> de tu equipo.
+        </h2>
+        <p class="text-xl text-gray-500 dark:text-gray-400 mb-12 leading-relaxed">
+          Nuestra infraestructura permite escalar sin fricciones. Automatiza las tareas repetitivas y céntrate en lo que realmente importa: tu negocio.
+        </p>
+        
+        <ul class="space-y-6 mb-12">
+          {['Escalado automático en la nube', 'Seguridad de grado bancario', 'API para desarrolladores'].map(item => (
+            <li class="flex items-center gap-4 font-bold dark:text-white">
+              <span class="text-primary-500 text-2xl">•</span> {item}
+            </li>
+          ))}
+        </ul>
+        
+        <button class="text-primary-600 dark:text-primary-400 font-bold flex items-center gap-2 group">
+          Explorar todas las funciones 
+          <span class="group-hover:translate-x-2 transition-transform">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

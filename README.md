@@ -1,46 +1,93 @@
-# Astro Starter Kit: Basics
+# Astro Landing Page Template 🚀
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este es un proyecto de landing page moderno y altamente personalizable construido con **Astro 5** y **Tailwind CSS**. Está diseñado para ser rápido, accesible y visualmente impactante.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠️ Tecnologías
 
-## 🚀 Project Structure
+- **Framework:** [Astro 5](https://astro.build/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Lenguaje:** [TypeScript](https://www.typescript.org/)
+- **Iconos:** SVGs integrados (Heroicons/Custom)
+- **Tipografía:** Inter (Google Fonts)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Estructura del Proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/             # Activos estáticos (imágenes, favicon, etc.)
+├── src/
+│   ├── components/     # Componentes modulares organizados por secciones
+│   │   ├── navigation/ # Header y menús
+│   │   ├── heroes/     # Secciones principales (Hero)
+│   │   ├── features/   # Secciones de características
+│   │   ├── cta/        # Llamadas a la acción
+│   │   └── footers/    # Pie de página
+│   ├── layouts/        # Plantillas base (Layout.astro)
+│   └── pages/          # Páginas del sitio (index.astro, etc.)
+├── tailwind.config.cjs # Configuración de Tailwind con safelist para colores dinámicos
+└── astro.config.mjs    # Configuración principal de Astro
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Ejecución en Local
 
-## 🧞 Commands
+Sigue estos pasos para poner en marcha el proyecto en tu máquina:
 
-All commands are run from the root of the project, from a terminal:
+### 1. Requisitos Previos
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18.x o superior) y npm.
 
-## 👀 Want to learn more?
+### 2. Instalación de Dependencias
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Desde la raíz del proyecto, ejecuta:
+
+```bash
+npm install
+```
+
+### 3. Servidor de Desarrollo
+
+Inicia el servidor local con:
+
+```bash
+npm run dev
+```
+
+El proyecto estará disponible en `http://localhost:4321`.
+
+### 4. Construcción para Producción
+
+Para generar el sitio estático optimizado:
+
+```bash
+npm run build
+```
+
+Los archivos se generarán en la carpeta `dist/`.
+
+### 5. Vista Previa de Producción
+
+Para probar la versión de producción localmente:
+
+```bash
+npm run preview
+```
+
+## 🎨 Personalización
+
+### Cambiar Colores o Textos
+La mayoría de las secciones se configuran pasando props a los componentes en `src/pages/index.astro`. Por ejemplo:
+
+```astro
+<Hero01 
+  title="Tu Título Aquí"
+  description="Tu descripción personalizada..."
+  ...
+/>
+```
+
+### Colores Dinámicos
+Los componentes de características (`Features01.astro`) soportan colores dinámicos (`blue`, `green`, `purple`, etc.). Si añades nuevos colores, asegúrate de incluirlos en el `safelist` de `tailwind.config.cjs` para que Tailwind no los elimine.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. ¡Siéntete libre de usarlo y mejorarlo!

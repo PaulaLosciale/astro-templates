@@ -1,0 +1,23 @@
+---
+import { ContactForm } from './ContactForm';
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
+     <div class="lg:col-span-1">
+        <h2 class="text-4xl font-black dark:text-white mb-8">Hablemos.</h2>
+        <div class="space-y-8">
+           <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center text-primary-500">✉</div>
+              <p class="font-bold dark:text-white">hola@saasflow.com</p>
+           </div>
+           <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center text-primary-500">☏</div>
+              <p class="font-bold dark:text-white">+34 900 123 456</p>
+           </div>
+        </div>
+     </div>
+     <div class="lg:col-span-2">
+        <ContactForm client:visible />
+     </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+export interface Props {
+  plans?: Array<{
+    name: string;
+    price: string;
+    features: string[];
+    highlight?: boolean;
+    color: string;
+  }>;
+}
+
+const {
+  plans = [
+    {
+      name: "Explorador",
+      price: "€29",
+      features: ["3 Proyectos", "Soporte Básico", "Análisis Semanal"],
+      color: "from-blue-400 to-cyan-500"
+    },
+    {
+      name: "Creador",
+      price: "€79",
+      features: ["10 Proyectos", "Soporte Prioritario", "Análisis Tiempo Real", "Dominio Custom"],
+      highlight: true,
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      name: "Visionario",
+      price: "€199",
+      features: ["Ilimitado", "Soporte 24/7", "Consultoría Mensual", "Acceso Early-bird"],
+      color: "from-amber-400 to-orange-500"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-24 bg-gray-900 overflow-hidden relative">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">Planes para cada Etapa</h2>
+      <p class="text-xl text-gray-400">Escoge el nivel de potencia que tu proyecto necesita.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {plans.map((plan) => (
+        <div class={`relative group ${plan.highlight ? 'scale-105 z-10' : ''}`}>
+           {plan.highlight && (
+             <div class="absolute -top-5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs font-bold uppercase tracking-widest animate-pulse">
+               Más Popular
+             </div>
+           )}
+           <div class="bg-gray-800 border border-gray-700 rounded-3xl p-8 hover:border-gray-500 transition-all duration-300 h-full flex flex-col">
+              <h3 class="text-2xl font-bold text-white mb-4">{plan.name}</h3>
+              <div class="mb-8 flex items-baseline gap-1">
+                 <span class="text-5xl font-black text-white">{plan.price}</span>
+                 <span class="text-gray-400 text-sm">/mes</span>
+              </div>
+              <ul class="space-y-4 mb-10 flex-grow">
+                 {plan.features.map(feature => (
+                   <li class="flex items-center gap-3 text-gray-300">
+                      <div class={`w-5 h-5 rounded-full bg-gradient-to-br ${plan.color} flex items-center justify-center p-1`}>
+                         <svg class="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                      </div>
+                      {feature}
+                   </li>
+                 ))}
+              </ul>
+              <a 
+                href="#" 
+                class={`w-full py-4 rounded-xl font-bold text-center transition-all ${plan.highlight ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+              >
+                Suscribirse Ahora
+              </a>
+           </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

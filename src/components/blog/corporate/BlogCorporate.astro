@@ -1,0 +1,27 @@
+---
+---
+<section class="py-32 bg-gray-50 dark:bg-gray-900 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <h4 class="text-primary-600 font-bold uppercase tracking-widest text-xs mb-12">Insights Strategics</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+       <div class="group cursor-pointer">
+          <div class="aspect-video bg-gray-200 dark:bg-gray-800 mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+             <div class="w-full h-full bg-primary-500/10 scale-110 group-hover:scale-100 transition-transform"></div>
+          </div>
+          <h3 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4 leading-tight">El futuro del capital riesgo en mercados emergentes (2026).</h3>
+          <p class="text-gray-500 dark:text-gray-400 font-light leading-relaxed">Un análisis profundo sobre las tendencias macroeconómicas que están redefiniendo el sector financiero global.</p>
+       </div>
+       <div class="space-y-12">
+          {[1,2].map(i => (
+             <div class="flex gap-8 group cursor-pointer">
+                <div class="w-32 h-32 bg-gray-200 dark:bg-gray-800 flex-shrink-0 grayscale group-hover:grayscale-0 transition-all"></div>
+                <div>
+                  <h4 class="text-xl font-bold dark:text-white group-hover:text-primary-500 transition-colors">Liderazgo en tiempos de IA.</h4>
+                  <p class="text-sm text-gray-400 mt-2">La importancia de la empatía humana en procesos automatizados.</p>
+                </div>
+             </div>
+          ))}
+       </div>
+    </div>
+  </div>
+</section>
