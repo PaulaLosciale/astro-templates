@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { NavbarTerminal } from '../components/navigation/terminal/NavbarTerminal';
+import HeroTerminal from '../components/heroes/terminal/HeroTerminal.astro';
+import FeaturesTerminal from '../components/features/terminal/FeaturesTerminal.astro';
+import CTATerminal from '../components/cta/terminal/CTATerminal.astro';
+
+import CTATerminal from '../components/cta/terminal/CTATerminal.astro';
+---
+
+<Layout title="Acme.ai | Decentralized Infrastructure" description="The future of distributed computing. Secure, scalable, and sovereign.">
+	<main class="bg-[#0A0F1C] min-h-screen text-white font-mono selection:bg-[#00D084] selection:text-black">
+		<NavbarTerminal client:load />
+		<HeroTerminal />
+		<FeaturesTerminal />
+		<CTATerminal />
+		
+		<footer class="w-full py-12 px-6 md:px-12 border-t border-[#1E293B] bg-[#0A0F1C]">
+			<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+				<div class="flex items-center gap-2 opacity-40 grayscale group hover:grayscale-0 transition-all duration-500">
+					<span class="text-[#00D084] font-bold">&gt;</span>
+					<span class="text-xs tracking-widest font-bold">ACME_CORE_V4</span>
+				</div>
+				
+				<div class="flex items-center gap-8 text-[10px] text-[#64748B] uppercase tracking-[0.2em]">
+					<a href="#" class="hover:text-white transition-colors">Privacy_Policy</a>
+					<a href="#" class="hover:text-white transition-colors">Terms_of_Service</a>
+					<a href="#" class="hover:text-white transition-colors">System_Status</a>
+				</div>
+
+				<div class="text-[#64748B] text-[10px] font-mono">
+					&copy; {new Date().getFullYear()} ACME.AI // ALL_RIGHTS_RESERVED
+				</div>
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<style is:global>
+	/* Override default layout colors for this page if needed */
+	body {
+		background-color: #0A0F1C !important;
+		margin: 0;
+	}
+	
+	/* Custom scrollbar for that terminal feel */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+	::-webkit-scrollbar-track {
+		background: #0A0F1C;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #1E293B;
+		border: 2px solid #0A0F1C;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #00D084;
+	}
+</style>

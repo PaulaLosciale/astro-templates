@@ -1,0 +1,145 @@
+---
+// glass.astro - Style 4: Glassmorfismo Showcase Page
+import Layout from '../layouts/Layout.astro';
+import NavbarGlass from '../components/navigation/glass/NavbarGlass';
+import HeroGlass from '../components/heroes/glass/HeroGlass.astro';
+import FeaturesGlass from '../components/features/glass/FeaturesGlass.astro';
+import CTAGlass from '../components/cta/glass/CTAGlass.astro';
+---
+
+<Layout title="GlassUI — Glassmorfismo Style | Astro Templates">
+  <div class="glass-page">
+
+    <!-- Ambient background blobs -->
+    <div class="ambient-blob blob-pink"></div>
+    <div class="ambient-blob blob-violet"></div>
+    <div class="ambient-blob blob-cyan"></div>
+
+    <!-- Grain overlay for texture -->
+    <div class="grain-overlay"></div>
+
+    <!-- Components -->
+    <NavbarGlass client:load />
+    <HeroGlass />
+    <FeaturesGlass />
+    <CTAGlass />
+
+    <!-- Footer -->
+    <footer class="glass-footer">
+      <p>© 2025 GlassUI · Built with Astro · Style 4: Glassmorfismo</p>
+      <div class="footer-links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  .glass-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+      hsl(270, 80%, 12%) 0%,
+      hsl(240, 70%, 8%) 35%,
+      hsl(200, 80%, 10%) 70%,
+      hsl(280, 60%, 8%) 100%
+    );
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Ambient gradient blobs */
+  .ambient-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatBlob 12s ease-in-out infinite alternate;
+  }
+  .blob-pink {
+    width: 700px;
+    height: 700px;
+    background: #FF00CC;
+    opacity: 0.22;
+    top: -200px;
+    left: -150px;
+    animation-duration: 10s;
+  }
+  .blob-violet {
+    width: 600px;
+    height: 600px;
+    background: #3300FF;
+    opacity: 0.18;
+    top: 30%;
+    right: -100px;
+    animation-duration: 14s;
+    animation-direction: alternate-reverse;
+  }
+  .blob-cyan {
+    width: 500px;
+    height: 500px;
+    background: #00CCFF;
+    opacity: 0.16;
+    bottom: -100px;
+    left: 20%;
+    animation-duration: 18s;
+  }
+
+  @keyframes floatBlob {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 30px) scale(1.08); }
+  }
+
+  /* Subtle grain texture */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
+  }
+
+  /* Make sure all content stays above the blobs */
+  .glass-page > :not(.ambient-blob):not(.grain-overlay) {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Footer */
+  .glass-footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.85rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(240, 70%, 8%); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.35); }
+</style>

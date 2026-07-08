@@ -1,0 +1,57 @@
+{
+  "projectName": "cliente-demo",
+  "domain": "cliente-demo.com",
+  "siteType": "saas",
+  "visualStyle": "calm-tech",
+  "deploymentTarget": "dokploy-static",
+  "sections": ["navbar", "hero", "features", "process", "pricing", "contact", "footer"],
+  "selectedBlocks": {
+    "navbar": "navbar-product",
+    "hero": "hero-product",
+    "features": "features-bento",
+    "process": "process-steps",
+    "pricing": "pricing-three",
+    "contact": "contact-split",
+    "footer": "footer-columns"
+  },
+  "palette": {
+    "id": "calm-tech",
+    "label": "Calm tech",
+    "background": "#f6f8fb",
+    "surface": "#ffffff",
+    "text": "#0f172a",
+    "muted": "#64748b",
+    "primary": "#0f766e",
+    "secondary": "#164e63",
+    "accent": "#22c55e"
+  },
+  "content": {
+    "brandName": "Cliente Demo",
+    "headline": "Una web lista para vender desde el primer dia",
+    "subheadline": "Elige piezas, ajusta la marca y genera un proyecto Astro desplegable en tu VPS.",
+    "primaryCta": "Empezar",
+    "secondaryCta": "Ver proceso"
+  },
+  "deployment": {
+    "githubOwner": "PaulaLosciale",
+    "githubRepo": "cliente-demo",
+    "githubVisibility": "private",
+    "githubProviderId": "iXdTwuPi7j1OTETNw_mHq",
+    "dokployUrl": "https://panel.paulalosciale.com",
+    "dokployEnvironmentId": "VrIAiCI3wAWyG30J3Rqvx",
+    "dokployServerId": "",
+    "dokployProjectId": "",
+    "dokployApplicationId": "",
+    "branch": "main",
+    "buildType": "dockerfile",
+    "dockerfilePath": "Dockerfile",
+    "internalPort": 80,
+    "autoDeployOnPush": true
+  },
+  "env": {
+    "PUBLIC_SITE_URL": "https://cliente-demo.com",
+    "PUBLIC_CONTACT_EMAIL": "hola@cliente-demo.com",
+    "FORMSPREE_ID": ""
+  },
+  "technologies": ["Astro 5", "Tailwind CSS", "React islands", "Docker", "Dokploy", "Nginx", "GitHub"]
+}

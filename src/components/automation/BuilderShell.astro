@@ -1,0 +1,99 @@
+---
+import SiteBuilder from "./SiteBuilder";
+---
+
+<section class="builder-band">
+  <div class="builder-shell">
+    <div class="builder-kicker">Astro Lego Builder</div>
+    <div class="builder-heading">
+      <div>
+        <h1>Monta la web de un cliente en minutos.</h1>
+        <p>
+          Sigue los pasos: negocio, páginas, estilo, paleta, tipografía, secciones y deploy.
+          Al final, "Montar web" genera un proyecto Astro independiente, lo sube a GitHub y lo conecta a Dokploy.
+        </p>
+      </div>
+      <div class="builder-status">
+        <span>Pipeline</span>
+        <strong>Builder → Proyecto → GitHub → Dokploy</strong>
+      </div>
+    </div>
+
+    <SiteBuilder client:load />
+  </div>
+</section>
+
+<style>
+  .builder-band {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0b1220, #102331);
+    color: #f8fafc;
+    padding: 64px 20px;
+  }
+
+  .builder-shell {
+    width: min(1680px, 100%);
+    margin: 0 auto;
+  }
+
+  .builder-kicker {
+    color: #5eead4;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .builder-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    max-width: 820px;
+    color: #ffffff;
+    font-size: clamp(2.35rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+    margin: 0 0 18px;
+  }
+
+  p {
+    max-width: 760px;
+    color: #cbd5e1;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    margin: 0;
+  }
+
+  .builder-status {
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: rgba(15, 23, 42, 0.72);
+    border-radius: 8px;
+    padding: 18px;
+  }
+
+  .builder-status span {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .builder-status strong {
+    color: #e2e8f0;
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 860px) {
+    .builder-heading {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

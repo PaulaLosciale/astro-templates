@@ -19,5 +19,22 @@
   /* Text */
   --color-text-light: 220 33% 10%;
   --color-text-dark: 210 40% 98%;
-}
 
+  /* Style 12: Terminal Minimal (Style 12) */
+  --terminal-bg: 226 47% 7%;      /* #0A0F1C approx as HSL */
+  --terminal-surface: 218 33% 17%; /* #1E293B approx as HSL */
+  --terminal-accent: 158 100% 41%; /* #00D084 approx as HSL */
+  --terminal-amber: 43 100% 50%;  /* #FFB800 approx as HSL */
+  --terminal-muted: 215 16% 47%;  /* #64748B approx as HSL */
+
+  /* Style 4: Glassmorfismo */
+  --glass-bg: 300 50% 98%;           /* Near white with a hint of lavender */
+  --glass-vivid-1: #FF00CC;          /* Hot pink gradient blob */
+  --glass-vivid-2: #3300FF;          /* Deep violet gradient blob */
+  --glass-vivid-3: #00CCFF;          /* Cyan gradient blob */
+  --glass-panel-bg: rgba(255, 255, 255, 0.12);
+  --glass-panel-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 20px;
+  --glass-text: #FFFFFF;
+  --glass-text-muted: rgba(255, 255, 255, 0.75);
+}

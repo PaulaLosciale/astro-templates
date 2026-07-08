@@ -1,0 +1,33 @@
+---
+const heroImg = "/images/generated-1773937034406.png";
+---
+<section class="relative h-[900px] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950">
+    <div class="absolute inset-0">
+        <img src={heroImg} alt="Zara Editorial" class="w-full h-full object-cover animate-zoom-out" />
+        <div class="absolute inset-0 bg-black/10"></div>
+    </div>
+    
+    <div class="relative h-full flex flex-col justify-end pb-40 px-[60px]">
+        <h1 class="text-[100px] font-bold text-white tracking-tighter leading-[0.9] uppercase animate-reveal drop-shadow-lg lg:max-w-4xl">
+            COLLECTION<br/>04 / 2026
+        </h1>
+        <div class="mt-12 w-20 h-0.5 bg-white/40"></div>
+    </div>
+</section>
+
+<style>
+    @keyframes reveal {
+        from { opacity: 0; transform: translateY(60px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoom-out {
+        from { transform: scale(1.1); }
+        to { transform: scale(1); }
+    }
+    .animate-reveal {
+        animation: reveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-zoom-out {
+        animation: zoom-out 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+</style>

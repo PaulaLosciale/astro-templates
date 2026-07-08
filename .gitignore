@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# jobs del builder
+.builder-jobs/
+
+# webs generadas (viven fuera del repo, pero por si acaso)
+generated-sites/
+
+# fuentes subidas desde el builder (se copian a cada proyecto generado)
+public/custom-fonts/

@@ -1,0 +1,104 @@
+---
+// Preview en vivo del builder: renderiza los componentes REALES elegidos en la
+// receta, con la paleta y tipografía aplicadas. Se usa como iframe desde /.
+// URL: /preview?recipe=<base64url>&page=<pageId>
+import "../styles/global.css";
+import { decodeRecipe, defaultRecipe, normalizeRecipe, type RecipeV2 } from "../data/recipeSchema";
+import { applyThemeDefaults, variantById } from "../data/componentRegistry";
+import { resolveComponent } from "../data/componentMap";
+import PreviewReactSection from "../components/automation/PreviewReactSection";
+import { paletteToCssVars } from "../utils/colors";
+
+export const prerender = false;
+
+let recipe: RecipeV2 = defaultRecipe;
+const encoded = Astro.url.searchParams.get("recipe");
+if (encoded) {
+  try {
+    recipe = normalizeRecipe(decodeRecipe(encoded));
+  } catch {
+    recipe = defaultRecipe;
+  }
+}
+recipe = applyThemeDefaults(recipe);
+
+const pageId = Astro.url.searchParams.get("page") ?? recipe.pages[0]?.id;
+const page = recipe.pages.find((p) => p.id === pageId) ?? recipe.pages[0];
+
+const sections = (page?.sections ?? [])
+  .map((section) => {
+    const variant = variantById(section.variant);
+    if (!variant) return null;
+    return { variant, component: resolveComponent(variant) };
+  })
+  .filter((entry) => entry && entry.component);
+
+const cssVars = paletteToCssVars(recipe.design.palette);
+const googleFamilies = recipe.design.typography.googleFamilies ?? [];
+const fontsHref = googleFamilies.length
+  ? `https://fonts.googleapis.com/css2?${googleFamilies.map((family) => `family=${family}`).join("&")}&display=swap`
+  : "";
+
+// Fuentes subidas: @font-face + prioridad sobre el par de Google según su role
+const customFonts = recipe.design.customFonts ?? [];
+const fontFaces = customFonts
+  .map((font) => `@font-face { font-family: "${font.family}"; src: url("${font.file}") format("${font.format}"); font-display: swap; }`)
+  .join("\n");
+const headingCustom = customFonts.find((f) => f.role === "heading" || f.role === "both");
+const bodyCustom = customFonts.find((f) => f.role === "body" || f.role === "both");
+const headingStack = headingCustom ? `"${headingCustom.family}", ${recipe.design.typography.headingStack}` : recipe.design.typography.headingStack;
+const bodyStack = bodyCustom ? `"${bodyCustom.family}", ${recipe.design.typography.bodyStack}` : recipe.design.typography.bodyStack;
+
+// Props estándar: los componentes que aceptan props las usan, el resto las ignora.
+const standardProps = {
+  siteName: recipe.business.brandName,
+  title: recipe.content.headline,
+  description: recipe.content.subheadline,
+};
+
+function propsFor(category: string) {
+  if (category === "navigation" || category === "footers") {
+    return { siteName: recipe.business.brandName };
+  }
+  if (category === "map") {
+    return {
+      mapEmbed: recipe.integrations.widgets?.gmapsEmbed ?? "",
+      address: `${recipe.business.address}${recipe.business.city ? ", " + recipe.business.city : ""}`,
+    };
+  }
+  if (category === "legal") {
+    return { siteName: recipe.business.brandName, title: page?.title ?? "Aviso legal", description: recipe.business.description };
+  }
+  return standardProps;
+}
+---
+
+<html lang={recipe.project.language} class={recipe.design.darkMode ? "dark" : ""}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {fontsHref && <link href={fontsHref} rel="stylesheet" />}
+    <title>Preview — {recipe.business.brandName} · {page?.title}</title>
+    <style set:html={`${fontFaces}\n${cssVars}\nbody { font-family: ${bodyStack}; }\nh1, h2, h3, h4, h5, h6 { font-family: ${headingStack}; }`}></style>
+  </head>
+  <body class="bg-white dark:bg-gray-950">
+    {sections.length === 0 && (
+      <div style="padding: 4rem; text-align: center; color: #64748b; font-family: system-ui;">
+        <h1 style="font-size: 1.4rem;">Sin secciones que previsualizar</h1>
+        <p>Añade secciones a esta página en el builder.</p>
+      </div>
+    )}
+    {sections.map((entry) => {
+      const Section = entry!.component;
+      const props = propsFor(entry!.variant.category);
+      return entry!.variant.isReact ? (
+        <PreviewReactSection client:only="react" variantId={entry!.variant.id} {...props} />
+      ) : (
+        <Section {...props} />
+      );
+    })}
+  </body>
+</html>

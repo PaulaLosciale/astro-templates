@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { NavbarElegant } from '../components/navigation/elegante/NavbarElegant';
+import HeroElegant from '../components/heroes/elegante/HeroElegant.astro';
+import FeaturesElegant from '../components/features/elegante/FeaturesElegant.astro';
+import AboutElegant from '../components/about/elegante/AboutElegant.astro';
+import CTAElegant from '../components/cta/elegante/CTAElegant.astro';
+import FooterClean from '../components/footers/cleantech/FooterClean.astro';
+import { ThemeToggle } from '../components/utils/ThemeToggle';
+---
+
+<Layout title="Zara 2.0 - Lego 4.0 Elegante">
+    <NavbarElegant client:load />
+    
+    <main class="bg-white dark:bg-black pt-[100px]">
+        <HeroElegant />
+        <FeaturesElegant />
+        <AboutElegant />
+        <CTAElegant />
+    </main>
+
+    <FooterClean />
+    <ThemeToggle client:load />
+</Layout>
+
+<style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        cursor: crosshair;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>

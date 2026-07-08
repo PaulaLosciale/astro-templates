@@ -1,0 +1,59 @@
+---
+const {
+  title = "Nuestra carta",
+  description = "Producto de temporada y recetas de siempre.",
+} = Astro.props;
+const sections = [
+  {
+    name: "Entrantes",
+    items: [
+      { name: "Plato de ejemplo 1", detail: "Descripción breve de los ingredientes", price: "9,50 €" },
+      { name: "Plato de ejemplo 2", detail: "Descripción breve de los ingredientes", price: "12,00 €" },
+      { name: "Plato de ejemplo 3", detail: "Descripción breve de los ingredientes", price: "8,00 €" },
+    ],
+  },
+  {
+    name: "Principales",
+    items: [
+      { name: "Plato principal 1", detail: "Descripción breve de los ingredientes", price: "18,50 €" },
+      { name: "Plato principal 2", detail: "Descripción breve de los ingredientes", price: "22,00 €" },
+      { name: "Plato principal 3", detail: "Descripción breve de los ingredientes", price: "16,00 €" },
+    ],
+  },
+  {
+    name: "Postres",
+    items: [
+      { name: "Postre 1", detail: "Descripción breve", price: "6,50 €" },
+      { name: "Postre 2", detail: "Descripción breve", price: "7,00 €" },
+    ],
+  },
+];
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-primary-500 font-bold uppercase tracking-widest text-sm">Carta</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">{title}</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">{description}</p>
+    </div>
+    <div class="space-y-14">
+      {sections.map((menuSection) => (
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-primary-500 pb-3 mb-6">{menuSection.name}</h3>
+          <ul class="space-y-5">
+            {menuSection.items.map((item) => (
+              <li class="flex items-baseline justify-between gap-4">
+                <div>
+                  <p class="font-semibold text-gray-900 dark:text-white">{item.name}</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">{item.detail}</p>
+                </div>
+                <span class="shrink-0 font-bold text-primary-600">{item.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="mt-14 text-center text-sm text-gray-500 dark:text-gray-400">Disponemos de información sobre alérgenos. Pregunta a nuestro equipo.</p>
+  </div>
+</section>

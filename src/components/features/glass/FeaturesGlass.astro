@@ -1,0 +1,192 @@
+---
+// FeaturesGlass.astro - Style 4: Glassmorfismo Features
+const features = [
+  {
+    icon: "🪟",
+    title: "Frosted Layers",
+    desc: "Multi-layered depth with real backdrop blur. Each panel sits atop a vibrant gradient universe, creating infinite perceptual depth.",
+    accent: "rgba(255, 0, 204, 0.25)",
+  },
+  {
+    icon: "🌈",
+    title: "Vibrant Core",
+    desc: "Luminous mesh gradients radiate through transparent surfaces. Hot pink, deep violet, and electric cyan create a dynamic, living background.",
+    accent: "rgba(51, 0, 255, 0.25)",
+  },
+  {
+    icon: "💎",
+    title: "Crisp Borders",
+    desc: "Ultra-thin 1px white borders catch the light like crystal edges, giving every panel a precisely defined, premium presence.",
+    accent: "rgba(0, 204, 255, 0.25)",
+  },
+  {
+    icon: "✨",
+    title: "Micro-animations",
+    desc: "Subtle hover lifts, shimmer transitions, and parallax blob movement breathe life into every interaction without distraction.",
+    accent: "rgba(255, 0, 204, 0.18)",
+  },
+  {
+    icon: "🎨",
+    title: "Themeable",
+    desc: "Swap the gradient palette in a single CSS file. The entire interface adapts: cards, navbars, and buttons shift with one color token.",
+    accent: "rgba(51, 0, 255, 0.18)",
+  },
+  {
+    icon: "⚡",
+    title: "Performance-first",
+    desc: "CSS-native `backdrop-filter` with GPU acceleration. No JavaScript blur hacks. Smooth 60fps on modern devices out of the box.",
+    accent: "rgba(0, 204, 255, 0.18)",
+  },
+];
+---
+
+<section class="glass-features" id="features">
+  <div class="feature-header">
+    <span class="section-tag">WHAT WE OFFER</span>
+    <h2 class="feature-title">
+      Everything you need<br />
+      to <span class="gradient-text">shine through</span>
+    </h2>
+    <p class="feature-sub">
+      A complete design system built on the principles of frosted glass,
+      layered depth, and vibrant color energy.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    {features.map((f) => (
+      <div class="glass-card" style={`--accent: ${f.accent}`}>
+        <div class="card-orb"></div>
+        <span class="card-icon">{f.icon}</span>
+        <h3 class="card-title">{f.title}</h3>
+        <p class="card-desc">{f.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .glass-features {
+    padding: 8rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .feature-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #FF00CC, #3300FF, #00CCFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .feature-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+
+  .glass-card {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.22);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .glass-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.16);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+
+  .card-orb {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--accent);
+    filter: blur(50px);
+    top: -30px;
+    right: -30px;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .glass-card:hover .card-orb {
+    opacity: 1.2;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.65;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+</style>

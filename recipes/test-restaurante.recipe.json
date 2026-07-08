@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "project": { "name": "test-restaurante", "language": "es", "extraLanguages": ["en"], "outputRoot": "" },
+  "business": {
+    "brandName": "Casa Lumbre",
+    "sector": "Restaurante",
+    "description": "Cocina de brasa y producto de temporada en el centro de Valencia.",
+    "phone": "+34 960 000 000",
+    "email": "reservas@casalumbre.com",
+    "address": "Plaza del Mercado 4",
+    "city": "Valencia",
+    "schedule": "M-D 13:00-16:00 / 20:00-23:30",
+    "socials": { "instagram": "https://instagram.com/casalumbre", "facebook": "", "linkedin": "", "tiktok": "", "x": "", "youtube": "", "whatsapp": "+34960000000" }
+  },
+  "design": {
+    "theme": "elegante",
+    "palette": { "id": "tierra-calida", "label": "Tierra cálida", "primary": "#b45309", "secondary": "#78350f", "accent": "#e11d48", "background": "#faf6f0", "backgroundDark": "#1c1410", "text": "#292524", "textDark": "#fef3c7" },
+    "typography": { "id": "fraunces-work", "label": "Fraunces + Work Sans (premium)", "heading": "Fraunces", "body": "Work Sans", "googleFamilies": ["Fraunces:wght@400;600;700;900", "Work+Sans:wght@400;500;600"], "headingStack": "'Fraunces', Georgia, serif", "bodyStack": "'Work Sans', system-ui, sans-serif" },
+    "customFonts": [{ "family": "Mi Fuente Bonita", "file": "/custom-fonts/mi-fuente-bonita.woff2", "format": "woff2", "role": "heading" }],
+    "darkMode": false
+  },
+  "pages": [
+    { "id": "home", "title": "Inicio", "path": "/", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "heroes", "variant": "heroes/elegante/HeroElegantSplit" },
+      { "category": "features", "variant": "features/elegante/FeaturesElegantEditorial" },
+      { "category": "cta", "variant": "cta/elegante/CTAElegant" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]},
+    { "id": "carta", "title": "Carta", "path": "/carta", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "menu", "variant": "menu/base/MenuList" },
+      { "category": "cta", "variant": "cta/elegante/CTAElegant" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]},
+    { "id": "galeria", "title": "Galería", "path": "/galeria", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "gallery", "variant": "gallery/base/GalleryGrid" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]},
+    { "id": "equipo", "title": "Equipo", "path": "/equipo", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "team", "variant": "team/base/TeamGrid" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]},
+    { "id": "ubicacion", "title": "Cómo llegar", "path": "/como-llegar", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "map", "variant": "map/base/MapEmbed" },
+      { "category": "contact", "variant": "contact/minimalist/ContactMinimal" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]},
+    { "id": "aviso-legal", "title": "Aviso legal", "path": "/aviso-legal", "sections": [
+      { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+      { "category": "legal", "variant": "legal/base/LegalText" },
+      { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+    ]}
+  ],
+  "content": {
+    "headline": "Cocina de brasa con alma",
+    "subheadline": "Producto de mercado, fuego lento y una carta que cambia con la temporada.",
+    "primaryCta": "Reservar mesa",
+    "secondaryCta": "Ver la carta",
+    "services": [
+      { "title": "Brasa", "description": "Carnes y pescados al fuego de encina." },
+      { "title": "Temporada", "description": "Carta viva según el mercado." },
+      { "title": "Bodega", "description": "Vinos naturales y de pequeños productores." }
+    ]
+  },
+  "seo": {
+    "siteTitle": "Casa Lumbre — Restaurante de brasa en Valencia",
+    "description": "Restaurante de cocina a la brasa y producto de temporada en Valencia. Reserva tu mesa.",
+    "keywords": "restaurante brasa valencia, cocina de mercado"
+  },
+  "integrations": {
+    "forms": "formspree", "formspreeId": "xzdjovge",
+    "analytics": "plausible", "analyticsId": "casalumbre.com",
+    "cookieBanner": true, "sitemap": true,
+    "widgets": {
+      "crispId": "",
+      "tawktoId": "",
+      "bookingUrl": "https://cal.com/casa-lumbre/mesa",
+      "gmapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.5!2d-0.379!3d39.474",
+      "customScript": ""
+    }
+  },
+  "deployment": {
+    "domain": "casalumbre.com",
+    "createGithub": false, "setupDokploy": false, "installDeps": true,
+    "github": { "owner": "", "repo": "", "visibility": "private", "branch": "main", "providerId": "" },
+    "dokploy": { "url": "", "environmentId": "", "serverId": "", "applicationId": "", "internalPort": 80 },
+    "env": {}
+  }
+}

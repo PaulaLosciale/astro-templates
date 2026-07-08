@@ -1,0 +1,29 @@
+---
+const {
+  title = "Automatiza. Despliega. Duerme.",
+  description = "Infraestructura y desarrollo sin drama, con logs verdes.",
+  siteName = "devshop",
+} = Astro.props;
+---
+<section class="min-h-[88vh] flex items-center bg-[hsl(var(--terminal-bg,226_47%_7%))] font-mono">
+  <div class="max-w-5xl mx-auto px-6 w-full py-24">
+    <div class="rounded-xl border border-slate-700/60 bg-[hsl(var(--terminal-surface,218_33%_17%))] shadow-2xl overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-slate-700/60">
+        <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+        <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+        <span class="ml-3 text-xs text-slate-400">{siteName} — zsh</span>
+      </div>
+      <div class="p-8 md:p-12">
+        <p class="text-[hsl(var(--terminal-accent,158_100%_41%))] text-sm mb-6">$ ./iniciar-proyecto --cliente=tu-negocio</p>
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-50 leading-tight mb-6">{title}</h1>
+        <p class="text-slate-400 text-lg max-w-xl mb-10">{description}</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contacto" class="bg-[hsl(var(--terminal-accent,158_100%_41%))] text-slate-950 px-8 py-3.5 rounded font-bold hover:opacity-90 transition-opacity">→ ejecutar ahora</a>
+          <a href="#features" class="border border-slate-600 text-slate-300 px-8 py-3.5 rounded font-bold hover:border-[hsl(var(--terminal-accent,158_100%_41%))] hover:text-[hsl(var(--terminal-accent,158_100%_41%))] transition-colors">cat servicios.md</a>
+        </div>
+        <p class="mt-10 text-xs text-slate-500">✓ deploy en 48h &nbsp;·&nbsp; ✓ ssl incluido &nbsp;·&nbsp; ✓ uptime 99.9%</p>
+      </div>
+    </div>
+  </div>
+</section>

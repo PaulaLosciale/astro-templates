@@ -1,0 +1,97 @@
+<section class="deploy-section" id="deploy">
+  <div class="deploy-inner">
+    <div>
+      <span class="deploy-kicker">Hetzner + Dokploy</span>
+      <h2>Checklist de despliegue que debe cubrir la automatizacion.</h2>
+    </div>
+    <div class="deploy-list">
+      <article>
+        <span>DNS</span>
+        <p>Crear registro A para el dominio y www apuntando a la IP del VPS.</p>
+      </article>
+      <article>
+        <span>Repositorio</span>
+        <p>Publicar el proyecto generado y conectar Dokploy al repo con auto-deploy.</p>
+      </article>
+      <article>
+        <span>Docker</span>
+        <p>Construir Astro y servir <code>dist</code> con Nginx para webs estaticas.</p>
+      </article>
+      <article>
+        <span>Variables</span>
+        <p>Configurar claves de formularios, analytics, CMS y dominios canonicos.</p>
+      </article>
+      <article>
+        <span>SSL</span>
+        <p>Activar certificado automatico en Dokploy cuando el DNS ya propague.</p>
+      </article>
+      <article>
+        <span>QA</span>
+        <p>Validar build, lighthouse basico, responsive, formularios y metadatos SEO.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .deploy-section {
+    background: #0b1220;
+    color: #f8fafc;
+    padding: 92px 20px;
+  }
+
+  .deploy-inner {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+  }
+
+  .deploy-kicker {
+    color: #5eead4;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 720px;
+    font-size: clamp(2rem, 4vw, 3.7rem);
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 14px 0 34px;
+  }
+
+  .deploy-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid rgba(148, 163, 184, 0.26);
+    border-left: 1px solid rgba(148, 163, 184, 0.26);
+  }
+
+  article {
+    min-height: 170px;
+    padding: 22px;
+    border-right: 1px solid rgba(148, 163, 184, 0.26);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.26);
+  }
+
+  article span {
+    color: #a7f3d0;
+    font-weight: 900;
+  }
+
+  article p {
+    color: #cbd5e1;
+    margin: 18px 0 0;
+  }
+
+  code {
+    color: #99f6e4;
+  }
+
+  @media (max-width: 860px) {
+    .deploy-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

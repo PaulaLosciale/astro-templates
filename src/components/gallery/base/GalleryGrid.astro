@@ -1,0 +1,31 @@
+---
+const {
+  title = "Galería",
+  description = "Una muestra de nuestro trabajo.",
+} = Astro.props;
+const images = [
+  "/images/generated-1773936705728.png",
+  "/images/generated-1773937034406.png",
+  "/images/generated-1773937059933.png",
+  "/images/generated-1773937092772.png",
+  "/images/generated-1773937806591.png",
+  "/images/generated-1773937824310.png",
+];
+---
+<section class="py-24 bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6">
+    <span class="text-primary-500 font-bold uppercase tracking-widest text-sm">Galería</span>
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">{title}</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mb-12">{description}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {images.map((src, index) => (
+        <figure class={`group relative overflow-hidden rounded-2xl ${index % 5 === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}>
+          <img src={src} alt={`Trabajo ${index + 1}`} loading="lazy" class="w-full h-full min-h-[220px] object-cover transition-transform duration-500 group-hover:scale-105" />
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
+            <span class="text-white font-semibold">Proyecto {index + 1}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

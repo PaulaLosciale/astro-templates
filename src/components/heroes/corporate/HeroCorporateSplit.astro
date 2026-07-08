@@ -1,0 +1,31 @@
+---
+const {
+  title = "Resultados que generan confianza",
+  description = "Acompañamos a empresas que quieren crecer con una base sólida y medible.",
+  siteName = "Consultora",
+} = Astro.props;
+---
+<section class="min-h-[88vh] flex items-center bg-white dark:bg-gray-950 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-24">
+    <div>
+      <span class="inline-block px-4 py-1.5 rounded bg-primary-50 dark:bg-primary-900/20 text-primary-600 text-sm font-bold mb-8">{siteName}</span>
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">{title}</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-lg">{description}</p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#contacto" class="bg-primary-600 text-white px-9 py-4 rounded-lg font-bold hover:bg-primary-700 transition-colors">Solicitar reunión</a>
+        <a href="#features" class="border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white px-9 py-4 rounded-lg font-bold hover:border-primary-500 transition-colors">Conocer servicios</a>
+      </div>
+      <dl class="grid grid-cols-3 gap-6 max-w-md">
+        <div><dt class="text-3xl font-black text-gray-900 dark:text-white">+120</dt><dd class="text-sm text-gray-500">clientes</dd></div>
+        <div><dt class="text-3xl font-black text-gray-900 dark:text-white">15</dt><dd class="text-sm text-gray-500">años</dd></div>
+        <div><dt class="text-3xl font-black text-gray-900 dark:text-white">98%</dt><dd class="text-sm text-gray-500">retención</dd></div>
+      </dl>
+    </div>
+    <div class="hidden lg:block">
+      <div class="relative">
+        <div class="absolute -inset-4 bg-primary-100 dark:bg-primary-900/20 rounded-3xl rotate-2"></div>
+        <img src="/images/generated-1773937824310.png" alt="" class="relative rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+const {
+  title = "Todo lo que incluye",
+  description = "Paneles claros, información directa.",
+} = Astro.props;
+const features = [
+  { icon: "⚡", name: "Rendimiento", detail: "Carga instantánea en cualquier dispositivo." },
+  { icon: "🎨", name: "Diseño vivo", detail: "Colores vibrantes con acabado glass." },
+  { icon: "🔒", name: "Seguridad", detail: "HTTPS y buenas prácticas por defecto." },
+  { icon: "📈", name: "SEO listo", detail: "Estructura optimizada para buscadores." },
+  { icon: "📱", name: "Responsive", detail: "Perfecto en móvil, tablet y escritorio." },
+  { icon: "🚀", name: "Escalable", detail: "Crece con tu negocio sin fricciones." },
+];
+---
+<section id="features" class="relative py-28 overflow-hidden bg-[hsl(var(--glass-bg,300_50%_98%))]">
+  <div class="absolute top-0 right-0 w-[420px] h-[420px] rounded-full opacity-40 blur-3xl" style="background: radial-gradient(circle, var(--glass-vivid-3, #00CCFF), transparent 70%);"></div>
+  <div class="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full opacity-40 blur-3xl" style="background: radial-gradient(circle, var(--glass-vivid-1, #FF00CC), transparent 70%);"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">{title}</h2>
+      <p class="text-lg text-gray-700">{description}</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((feature) => (
+        <article class="backdrop-blur-xl bg-white/25 border border-white/40 rounded-3xl p-8 hover:bg-white/40 transition-colors shadow-lg">
+          <span class="text-3xl">{feature.icon}</span>
+          <h3 class="text-lg font-bold text-gray-900 mt-4 mb-2">{feature.name}</h3>
+          <p class="text-gray-700 text-sm leading-relaxed">{feature.detail}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

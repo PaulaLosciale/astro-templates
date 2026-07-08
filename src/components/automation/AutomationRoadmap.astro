@@ -1,0 +1,110 @@
+<section class="roadmap-section" id="automation">
+  <div class="roadmap-inner">
+    <div class="roadmap-copy">
+      <span>Arquitectura inteligente</span>
+      <h2>La web deja de ser una pagina suelta y pasa a ser una receta.</h2>
+      <p>
+        Cada decision del configurador se convierte en un JSON versionable: componentes,
+        estilo, dominio, integraciones, variables de entorno y estrategia de despliegue.
+      </p>
+    </div>
+
+    <div class="roadmap-steps">
+      <article>
+        <strong>01</strong>
+        <h3>Catalogo</h3>
+        <p>Componentes Astro etiquetados por objetivo, sector, estilo, dependencias y compatibilidad.</p>
+      </article>
+      <article>
+        <strong>02</strong>
+        <h3>Configurador</h3>
+        <p>Wizard visual que genera una receta con dominio, stack, secciones y deployment target.</p>
+      </article>
+      <article>
+        <strong>03</strong>
+        <h3>Generador</h3>
+        <p>Script que crea el proyecto final copiando bloques, tokens, Dockerfile y documentacion.</p>
+      </article>
+      <article>
+        <strong>04</strong>
+        <h3>Dokploy</h3>
+        <p>Deploy con Docker, dominio, HTTPS, variables y webhooks de rebuild desde Git.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roadmap-section {
+    background: #f8fafc;
+    color: #0f172a;
+    padding: 92px 20px;
+  }
+
+  .roadmap-inner {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .roadmap-copy span {
+    color: #0f766e;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .roadmap-copy h2 {
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 14px 0 18px;
+  }
+
+  .roadmap-copy p {
+    color: #475569;
+    font-size: 1.08rem;
+    margin: 0;
+  }
+
+  .roadmap-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .roadmap-steps article {
+    min-height: 220px;
+    border: 1px solid #dbe4ef;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 22px;
+  }
+
+  .roadmap-steps strong {
+    color: #14b8a6;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.86rem;
+  }
+
+  .roadmap-steps h3 {
+    font-size: 1.35rem;
+    margin: 34px 0 10px;
+  }
+
+  .roadmap-steps p {
+    color: #64748b;
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .roadmap-inner,
+    .roadmap-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

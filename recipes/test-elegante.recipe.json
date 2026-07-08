@@ -1,0 +1,67 @@
+{
+  "version": 2,
+  "project": { "name": "test-elegante", "language": "es", "outputRoot": "" },
+  "business": {
+    "brandName": "Atelier Rosa",
+    "sector": "Moda",
+    "description": "Atelier de moda a medida en Madrid: vestidos de novia, fiesta y arreglos premium.",
+    "phone": "+34 600 111 222",
+    "email": "hola@atelierrosa.com",
+    "address": "Calle Mayor 12",
+    "city": "Madrid",
+    "schedule": "L-V 10:00-19:00",
+    "socials": { "instagram": "https://instagram.com/atelierrosa", "facebook": "", "linkedin": "", "tiktok": "", "x": "", "youtube": "", "whatsapp": "+34600111222" }
+  },
+  "design": {
+    "theme": "elegante",
+    "palette": { "id": "burdeos-premium", "label": "Burdeos premium", "primary": "#9f1239", "secondary": "#1e293b", "accent": "#d4a373", "background": "#fdf8f6", "backgroundDark": "#180509", "text": "#1f2937", "textDark": "#fce7f3" },
+    "typography": { "id": "dm-serif", "label": "DM Serif + DM Sans (elegante)", "heading": "DM Serif Display", "body": "DM Sans", "googleFamilies": ["DM+Serif+Display", "DM+Sans:wght@400;500;700"], "headingStack": "'DM Serif Display', Georgia, serif", "bodyStack": "'DM Sans', system-ui, sans-serif" },
+    "darkMode": false
+  },
+  "pages": [
+    {
+      "id": "home", "title": "Inicio", "path": "/",
+      "sections": [
+        { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+        { "category": "heroes", "variant": "heroes/elegante/HeroElegant" },
+        { "category": "features", "variant": "features/elegante/FeaturesElegant" },
+        { "category": "cta", "variant": "cta/elegante/CTAElegant" },
+        { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+      ]
+    },
+    {
+      "id": "contacto", "title": "Contacto", "path": "/contacto",
+      "sections": [
+        { "category": "navigation", "variant": "navigation/elegante/NavbarElegant" },
+        { "category": "contact", "variant": "contact/minimalist/ContactMinimal" },
+        { "category": "footers", "variant": "footers/minimalist/FooterMinimal" }
+      ]
+    }
+  ],
+  "content": {
+    "headline": "Moda a medida que cuenta tu historia",
+    "subheadline": "Diseño y confección artesanal en el corazón de Madrid.",
+    "primaryCta": "Reserva tu cita",
+    "secondaryCta": "Ver colecciones",
+    "services": [
+      { "title": "Vestidos de novia", "description": "Diseño exclusivo a medida." },
+      { "title": "Moda de fiesta", "description": "Piezas únicas para eventos." },
+      { "title": "Arreglos premium", "description": "Transformaciones de alta costura." }
+    ]
+  },
+  "seo": {
+    "siteTitle": "Atelier Rosa — Moda a medida en Madrid",
+    "description": "Atelier de moda a medida en Madrid: vestidos de novia, fiesta y arreglos de alta costura.",
+    "keywords": "atelier madrid, vestidos novia a medida"
+  },
+  "integrations": { "forms": "formspree", "formspreeId": "xzdjovge", "analytics": "none", "analyticsId": "", "cookieBanner": true, "sitemap": true },
+  "deployment": {
+    "domain": "atelierrosa.com",
+    "createGithub": false,
+    "setupDokploy": false,
+    "installDeps": true,
+    "github": { "owner": "", "repo": "", "visibility": "private", "branch": "main", "providerId": "" },
+    "dokploy": { "url": "", "environmentId": "", "serverId": "", "applicationId": "", "internalPort": 80 },
+    "env": {}
+  }
+}

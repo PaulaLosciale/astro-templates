@@ -1,0 +1,29 @@
+---
+const {
+  title = "Un servicio pensado al detalle",
+  description = "Cada proyecto se trata como una pieza única.",
+} = Astro.props;
+const services = [
+  { number: "01", name: "Asesoramiento", detail: "Escuchamos y proponemos la mejor solución para cada caso." },
+  { number: "02", name: "Diseño a medida", detail: "Creación exclusiva adaptada a tu estilo y necesidades." },
+  { number: "03", name: "Acabado impecable", detail: "Materiales premium y ejecución artesanal cuidada." },
+];
+---
+<section class="py-28 bg-white dark:bg-zinc-950 transition-colors">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-2xl mb-20">
+      <div class="w-16 h-px bg-zinc-900 dark:bg-zinc-100 mb-8"></div>
+      <h2 class="font-serif text-4xl lg:text-5xl text-zinc-900 dark:text-zinc-50 mb-6">{title}</h2>
+      <p class="text-lg text-zinc-600 dark:text-zinc-400">{description}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-800">
+      {services.map((service) => (
+        <article class="bg-white dark:bg-zinc-950 p-10 lg:p-12 group hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors">
+          <span class="font-serif text-5xl text-zinc-200 dark:text-zinc-700 group-hover:text-primary-500 transition-colors">{service.number}</span>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mt-8 mb-4 uppercase tracking-wide">{service.name}</h3>
+          <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">{service.detail}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

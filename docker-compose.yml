@@ -2,7 +2,7 @@ services:
   astro-app:
     build: .
     ports:
-      - "4321:4321"
+      - "4321:80"
     environment:
       - NODE_ENV=production
     restart: always

@@ -1,0 +1,149 @@
+---
+// CTAGlass.astro - Style 4: Glassmorfismo CTA
+---
+
+<section class="glass-cta">
+  <!-- Large background blobs -->
+  <div class="cta-blob blob-1"></div>
+  <div class="cta-blob blob-2"></div>
+
+  <div class="cta-card">
+    <span class="cta-tag">✦ READY TO BEGIN?</span>
+    <h2 class="cta-title">
+      Start building <span class="gradient-text">glassy</span> experiences
+    </h2>
+    <p class="cta-sub">
+      Join thousands of developers and designers already using GlassUI to craft stunning,
+      transparent interfaces. No credit card required.
+    </p>
+    <div class="cta-actions">
+      <a href="#start" class="cta-btn-primary">Deploy for free</a>
+      <a href="#docs" class="cta-btn-ghost">Read the docs →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .glass-cta {
+    padding: 8rem 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .cta-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.28;
+    pointer-events: none;
+  }
+  .blob-1 {
+    width: 600px;
+    height: 600px;
+    background: #FF00CC;
+    left: -100px;
+    top: -100px;
+  }
+  .blob-2 {
+    width: 500px;
+    height: 500px;
+    background: #00CCFF;
+    right: -80px;
+    bottom: -80px;
+  }
+
+  .cta-card {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    width: 100%;
+    padding: 4rem 3rem;
+    border-radius: 32px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 24px 80px rgba(51,0,255,0.14), inset 0 1px 0 rgba(255,255,255,0.28);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .cta-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #FF00CC, #3300FF, #00CCFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .cta-btn-primary {
+    padding: 0.9rem 2.4rem;
+    border-radius: 100px;
+    background: #fff;
+    color: #0a0a1a;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 18px rgba(255,255,255,0.25);
+  }
+  .cta-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .cta-btn-ghost {
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta-btn-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: #fff;
+  }
+</style>
